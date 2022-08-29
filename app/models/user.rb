@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :preference
   has_many :blocked_users
-  validates :first_name, :last_name, :birthdate, :description, :gender, :address, presence: true
+  validates :first_name, :last_name, :birthdate, :description, :gender, presence: true
   validates :description, length: { minimum: 100 }
   validate :old_enough?
 
