@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<html>
+ <head>
+ <script src="card.js"> </script>
+ </head>
+
+ <body>
+  <h1>Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
+
+  <div class="different-homes">
+    <% if current_user.currently_playing? %>
+      <%= render "pages/matches_home" %>
+    <% elsif current_user.preference.present? %>
+      <%= render "pages/no_matches_home" %>
+    <% else %>
+      <%= render "pages/signup_home" %>
+    <% end %>
+  </div>
+ </body>
+
+</html>
