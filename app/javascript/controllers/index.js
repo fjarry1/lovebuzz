@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import GeocodeController from "./geocode_controller"
+application.register("geocode", GeocodeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

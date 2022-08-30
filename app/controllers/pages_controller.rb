@@ -3,4 +3,11 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def geolocalize
+    @user = current_user
+    @user.latitude = params[:latitude]
+    @user.longitude = params[:longitude]
+    redirect_to root
+  end
 end
