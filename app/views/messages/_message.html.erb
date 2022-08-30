@@ -1,0 +1,11 @@
+<% sender = message.user == current_user %>
+
+<div class="message <%= 'sender' if sender %>">
+  <div class="message-content">
+    <%= image_tag "https://avatars.githubusercontent.com/u/46308640?v=4", alt: "#{message.user.full_name}'s avatar", class: 'message-avatar' %>
+    <p><%= message.content %></p>
+  </div>
+  <div class="message-infos">
+    <p><%= sender ? 'You' : message.user.full_name %> at <%= message.created_at.strftime("%H:%M") %></p>
+  </div>
+</div>
