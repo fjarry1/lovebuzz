@@ -9,3 +9,6 @@ application.register("geocode", GeocodeController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MatchSubscriptionController from "./match_subscription_controller"
+application.register("match-subscription", MatchSubscriptionController)

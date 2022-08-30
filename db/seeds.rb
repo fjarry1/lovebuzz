@@ -10,10 +10,9 @@ require "open-uri"
 require "date"
 
 puts "cleaning database"
-Message.destroy_all
-Conversation.destroy_all
-Match.destroy_all
 User.destroy_all
+Match.destroy_all
+Message.destroy_all
 BlockedUser.destroy_all
 
 puts "creating Jean-Eudes.BG@gmail.com and azerty login"

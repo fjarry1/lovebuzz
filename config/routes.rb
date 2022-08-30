@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: "pages#home"
 
   patch 'geolocalize', to: 'pages#geolocalize'
@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :matches, only: [:index, :show] do
+    resources :messages, only: [:create]
+  end
 end
