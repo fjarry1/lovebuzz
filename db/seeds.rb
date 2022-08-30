@@ -25,7 +25,7 @@ user_jebg = User.create!(email: "Jean-Eudes.BG@gmail.com",
              birthdate: age,
              description: "Salut Biloute, moi c'est Jean-Eude BG, le BG de Paris 17. J'ai #{DateTime.now.year - age.year} ans. L'aprem c'est ricard devant Sardou. Dans la vie j'aime pas les débats: y'a pas à tortiller du cul pour chier droit.",
              gender: "M",
-             localisation: "Paris"
+             localisation: "Paris",
              music_tastes: "Disco, Funk, Soul")
 
 file = URI.open("https://source.unsplash.com/WNoLnJo7tS8")
@@ -49,7 +49,7 @@ user_mich = User.create!(email: "Michel-Du-75@gmail.com",
              birthdate: age,
              description: "Coucou à tous ! Difficile de se décrire hihi. J'ai #{DateTime.now.year - age.year} ans, je suis fraîchement séparé et heureux papa de 2 merveilleux enfants. Je recherche la personne qui fera de nouveau vibrer mon coeur. Si tu aimes le sport et Derrick, c'est un plus.",
              gender: "M",
-             localisation: "Paris"
+             localisation: "Paris",
              music_tastes: "Rock, Chanson française, Classique")
 
 file = URI.open("https://source.unsplash.com/s3mR42Spras")
@@ -75,7 +75,7 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     birthdate: age,
                     description: "Hello ! Fan de festivals techno, de soirées en tout genre et pilier de bar, j'aurais besoin de quelqu'un pour m'accompagner au mariage de ma soeur. Peut-être que ça sera toi !",
                     gender: ["M","F","Other"].sample,
-                    localisation: "Paris"
+                    localisation: "Paris",
                     music_tastes: "Electro, Techno, New wave")
 (2..7).to_a.sample.times do
   puts "photo"
@@ -95,7 +95,7 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     birthdate: age,
                     description: "Hey toi, je cherche à sortir de cette application le plus rapidement possible. J'aimerais quelqu'un avec qui voyager et qui aime cuisiner car je ne sais rien faire de mes 10 doigts.",
                     gender: ["M","F","Other"].sample,
-                    localisation: "Paris"
+                    localisation: "Paris",
                     music_tastes: "Rock, Karaoké, Métal")
 (2..7).to_a.sample.times do
   puts "photo"
@@ -115,7 +115,7 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     birthdate: age,
                     description: "Bonjour vous, Je n'aime pas les descriptions. Allons plutôt boire un verre ! (chez moi ou chez toi ?)",
                     gender: ["M","F","Other"].sample,
-                    localisation: "Paris"
+                    localisation: "Paris",
                     music_tastes: "Techno, Trans, Hardcore")
 (2..7).to_a.sample.times do
   puts "photo"
@@ -135,7 +135,7 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     birthdate: age,
                     description: "Coucou, moi c'est #{first_name} #{last_name}, j'ai #{DateTime.now.year - age.year} ans. J'aime le fooding, les voyages, et l'humour ! Pas de one shot SVP...",
                     gender: ["M","F","Other"].sample,
-                    localisation: "Paris"
+                    localisation: "Paris",
                     music_tastes: "J'écoute de tout !")
 (2..7).to_a.sample.times do
   puts "photo"
