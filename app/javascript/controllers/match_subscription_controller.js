@@ -1,4 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
+import { createConsumer } from "@rails/actioncable"
+
 
 // Connects to data-controller="match-subscription"
 export default class extends Controller {

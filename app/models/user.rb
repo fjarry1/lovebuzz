@@ -3,13 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :matches,
-            ->(user) {
-              unscope(where: :user_id)
-              .where("user_1_id = :user_id OR user_2_id = :user_id", user_id: user.id)
-            },
-            class_name: 'Match',
-            dependent: :destroy
+  has_many :all_matches
   has_many :messages, dependent: :destroy
 
   has_one :preference, dependent: :destroy
@@ -27,5 +21,10 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
+  def all_matches
+    sql = "user_1_id = :user_id OR user_2_id = :user_id"
+    Match.where(sql, user_id: self.id)
   end
 end
