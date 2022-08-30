@@ -24,4 +24,7 @@ module Lovebuzz
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
+  RSpotify::authenticate("106e098a58c248dd85e1b5689b0ccc27", "acbc5e92d6f545ffa93545d5eb192c5a")
+
 end
