@@ -17,6 +17,11 @@ class User < ApplicationRecord
   validates :description, length: { minimum: 100 }
   validate :old_enough?
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+
   def old_enough?
     errors.add(:birthdate, "Vous devez avoir au moins 18 ans.") unless (DateTime.now - birthdate).to_i >= 6570
   end
