@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-
+gem "geocoder"
 # login through social media accounts + spotify, etc...
 gem "omniauth"
 # rspotify to fetch data from the spotify database
