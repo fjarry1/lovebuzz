@@ -1,8 +1,20 @@
 <h1>Discover your potential matches!</h1>
 
-<div
-  data-controller="swipe"
-
->
-<p>Card</p>
+<div class="card-container my-5">
+  <div class="cards">
+    <% users.each do |user| %>
+      <% unless user == current_user%>
+        <div class="card">
+          <div class="card-img-top" style="background-image:url(<%= cl_image_path user.photos.first.key, crop: :fill, gravity: :face %>)">
+              <%= link_to profil_path(user) do%>
+              <h5 class="card-title"><%= user.first_name %></h5>
+              <% end %>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><%= user.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
