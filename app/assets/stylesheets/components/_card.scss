@@ -1,0 +1,87 @@
+.card-img-top{
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 5px;
+  height: 220px;
+  background-size: cover;
+  object-fit: contain;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 16px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.card {
+  padding: 16px;
+  border-radius: 15px;
+  &.active {
+    border: solid 2px #FF5A60;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-container {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.card-title {
+  color: rgb(251, 239, 239);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+h5:hover {
+  color: #FF5A60;
+  text-decoration: none;
+}
+
+.card-text{
+  text-overflow:ellipsis;
+  overflow:hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

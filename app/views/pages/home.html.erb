@@ -2,7 +2,6 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
   <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
- <script src="card.js">
 
   <div class="different-homes">
 
@@ -21,7 +20,6 @@
     <% end %>
   </div>
   <% console %>
-</script>
 
 
-  <%= render "matches_home" %>
+  <%= render "matches_home", users: @users %>
