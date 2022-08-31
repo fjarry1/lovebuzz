@@ -3,4 +3,13 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def geolocalize
+    puts "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST"
+    @user = current_user
+    @user.latitude = params[:latitude]
+    @user.longitude = params[:longitude]
+    @user.save
+    puts "END END END END END END END END END END"
+  end
 end
