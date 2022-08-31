@@ -3,10 +3,9 @@
 
   <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
  <script src="card.js">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
 
   <div class="different-homes">
+
     <% if current_user.nil?%>
       <%= render "pages/signup_home" %>
     <%# elsif current_user.currently_playing? %>
