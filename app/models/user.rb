@@ -17,6 +17,9 @@ class User < ApplicationRecord
   validates :description, length: { minimum: 100 }
   validate :old_enough?
 
+  scope :available, -> { where(availability: true) } #permet de filtrer les user available
+  scope :unavailable, -> { where(availability: false) }
+
   def old_enough?
     errors.add(:birthdate, "Vous devez avoir au moins 18 ans.") unless (DateTime.now - birthdate).to_i >= 6570
   end
