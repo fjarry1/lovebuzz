@@ -15,9 +15,16 @@
       <%#= render "pages/matches_home" %>
     <%# elsif current_user.preference.present? %>
       <%#= render "pages/no_matches_home" %>
+
     <% else %>
-      <%= render "pages/signup_home" %>
+      <%= render "signup_home" %>
     <% end %>
   </div>
   <% console %>
 </script>
+
+<% if current_user.email == "Jean-Eudes.BG@gmail.com" %>
+<h1>Hello</h1>
+<% else %>
+  <%= render "matches_home" %>
+<% end %>
