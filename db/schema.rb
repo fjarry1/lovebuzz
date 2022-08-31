@@ -93,6 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_154242) do
     t.string "localisation"
     t.text "description"
     t.string "music_tastes"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

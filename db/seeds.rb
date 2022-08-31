@@ -67,6 +67,7 @@ puts "creating user n°1"
 first_name = Faker::Name.first_name
 last_name = Faker::Name.last_name
 age = DateTime.now - (19..90).to_a.sample.years
+puts "#{first_name}.#{last_name}@gmail.com"
 user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     password: "azerty",
                     first_name: first_name,
@@ -87,6 +88,7 @@ puts "creating user n°2"
 first_name = Faker::Name.first_name
 last_name = Faker::Name.last_name
 age = DateTime.now - (19..90).to_a.sample.years
+puts "#{first_name}.#{last_name}@gmail.com"
 user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     password: "azerty",
                     first_name: first_name,
@@ -107,6 +109,7 @@ puts "creating user n°3"
 first_name = Faker::Name.first_name
 last_name = Faker::Name.last_name
 age = DateTime.now - (19..90).to_a.sample.years
+puts "#{first_name}.#{last_name}@gmail.com"
 user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     password: "azerty",
                     first_name: first_name,
@@ -127,6 +130,7 @@ puts "creating user n°4"
 first_name = Faker::Name.first_name
 last_name = Faker::Name.last_name
 age = DateTime.now - (19..90).to_a.sample.years
+puts "#{first_name}.#{last_name}@gmail.com"
 user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     password: "azerty",
                     first_name: first_name,
