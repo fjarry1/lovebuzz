@@ -13,6 +13,9 @@
   <body data-controller="geocode">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="custom-wrapper">
+      <%= yield %>
+    </div>
+    <%= render "shared/footer" %>
   </body>
 </html>
