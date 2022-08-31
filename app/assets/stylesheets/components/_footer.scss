@@ -1,0 +1,31 @@
+.custom-wrapper {
+  min-height: calc(100vh - 96px - 96px);
+}
+
+.footer {
+  background: $jaune;
+  display: flex;
+  height: 96px;
+  border-radius: 8px 8px 0px 0px;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.footer-links a {
+  color: $orange;
+  opacity: 1;
+  text-decoration: none;
+  font-size: 52px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  font-size: 55px;
+}
+
+body {
+  margin-top: 96px;
+}

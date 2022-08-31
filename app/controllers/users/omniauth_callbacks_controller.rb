@@ -4,10 +4,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def spotify
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-
     redirect_to root_path
   end
 
+  # méthode ci-dessous pour récupérer la track jouée, copié collé de la doc en dévellopement
+  # def currently_playing
+  #   url = "me/player/currently-playing"
+  #   response = RSpotify.resolve_auth_request(@user.id, url)
+  #   return response if RSpotify.raw_response
+  #   Track.new response["item"]
+  # end
 
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
