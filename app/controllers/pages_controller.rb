@@ -5,9 +5,11 @@ class PagesController < ApplicationController
   end
 
   def geolocalize
+    puts "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST"
     @user = current_user
     @user.latitude = params[:latitude]
     @user.longitude = params[:longitude]
-    redirect_to root
+    @user.save
+    puts "END END END END END END END END END END"
   end
 end
