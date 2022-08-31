@@ -4,6 +4,10 @@ class PagesController < ApplicationController
   def home
   end
 
+  def profil
+    @user = User.find(params[:id])
+  end
+
   def geolocalize
     puts "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST"
     @user = current_user
