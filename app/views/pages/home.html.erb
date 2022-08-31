@@ -8,13 +8,19 @@
 
   <div class="different-homes">
     <% if current_user.nil?%>
-      <%= render "pages/signup_home" %>
-    <% elsif current_user.currently_playing? %>
-      <%= render "pages/matches_home" %>
+      <%= render "signup_home" %>
+    <%# #elsif current_user.currently_playing? %>
+      <%= render "matches_home" %>
     <% elsif current_user.preference.present? %>
-      <%= render "pages/no_matches_home" %>
+      <%= render "no_matches_home" %>
     <% else %>
-      <%= render "pages/signup_home" %>
+      <%= render "signup_home" %>
     <% end %>
   </div>
 </script>
+
+<% if current_user.email == "Jean-Eudes.BG@gmail.com" %>
+<h1>Hello</h1>
+<% else %>
+  <%= render "matches_home" %>
+<% end %>
