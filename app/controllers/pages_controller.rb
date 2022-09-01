@@ -9,6 +9,9 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def connexion
+  end
+
   def geolocalize
     puts "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST"
     @user = current_user
