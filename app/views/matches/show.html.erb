@@ -6,7 +6,7 @@
       data-match-subscription-match-id-value="<%= @match.id %>"
       data-match-subscription-user-id-value="<%= current_user.id %>">
     <div class="card-chat">
-      <div class="card-match match" data-match-subscription-target="messages">
+      <div class="card-chat-match match" data-match-subscription-target="messages">
         <% @match.messages.each do |message| %>
           <%= render 'messages/message', message: message %>
         <% end %>
