@@ -9,8 +9,7 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def profil
-    @user = User.find(params[:id])
+  def connexion
   end
 
   def geolocalize
