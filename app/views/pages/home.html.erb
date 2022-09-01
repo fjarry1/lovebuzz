@@ -1,6 +1,8 @@
 <%#= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
 <%#
-  <div class="different-homes"> %>
+  <div class="different-homes"> >
+
+  <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
 
 <%#     <% if current_user.nil?%>
 <%#       <%= render "pages/signup_home" %>
@@ -17,5 +19,6 @@
     <%# end %>
 <%#   </div> %>
 
+  <% console %>
 
 <%= render "matches_home", users: @users %>
