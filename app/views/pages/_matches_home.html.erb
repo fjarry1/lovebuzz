@@ -2,7 +2,8 @@
 
 <div class="card-container my-5">
   <div class="cards">
-    <% users.each do |user| %>
+    <%# User.near([current_user.latitude, current_user.longitude], current_user.preference.max_distance).to_a.select { |u| u unless u == current_user }.each do |user|%>
+    <% @users.each do |user| %>
       <% unless user == current_user%>
         <div class="card">
           <div class="card-img-top" style="background-image:url(<%= cl_image_path user.photos.first.key, crop: :fill, gravity: :face %>)">
