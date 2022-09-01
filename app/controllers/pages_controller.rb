@@ -7,11 +7,17 @@ class PagesController < ApplicationController
     @users = User.all
 
     url = "me/player/currently-playing"
-    response = RSpotify.resolve_auth_request(current_user.spotify_id, url)
-    @title = response["item"]["name"]
-    @artist = response["item"]["artists"][0]["name"]
+    if user_signed_in? && !(current_user.spotify_id.nil?)
+      response = RSpotify.resolve_auth_request(current_user.spotify_id, url)
+      @title = response["item"]["name"]
+      @artist = response["item"]["artists"][0]["name"]
+    end
     # return response if RSpotify.raw_response
     # Track.new response["item"]
+  end
+
+  def profil
+    @user = User.find(params[:id])
   end
 
   def connexion
