@@ -15,21 +15,21 @@ class User < ApplicationRecord
   has_many_attached :photos
   validates :first_name, :last_name, :birthdate, :description, :gender, presence: true
   validates :description, length: { minimum: 100 }
-  validate :old_enough?
+  # validate :old_enough?
 
 
   scope :available, -> { where(availability: true) } #permet de filtrer les user available
   scope :unavailable, -> { where(availability: false) }
-  
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
 
 
-  def old_enough?
-    errors.add(:birthdate, "Vous devez avoir au moins 18 ans.") unless (DateTime.now - birthdate).to_i >= 6570
-  end
+  # def old_enough?
+    # errors.add(:birthdate, "Vous devez avoir au moins 18 ans.") unless (DateTime.now - birthdate).to_i >= 6570
+  # end
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
@@ -38,5 +38,13 @@ class User < ApplicationRecord
   def all_matches
     sql = "user_1_id = :user_id OR user_2_id = :user_id"
     Match.where(sql, user_id: self.id)
+  end
+
+  def currently_playing
+    # url = "me/player/currently-playing"
+    response = RSpotify.resolve_auth_request(@user.id, url)
+    return response if RSpotify.raw_response
+
+    Track.new response["item"]
   end
 end

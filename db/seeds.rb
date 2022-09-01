@@ -148,5 +148,4 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
   user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
 end
 user.save!
-
 puts "Database ready"
