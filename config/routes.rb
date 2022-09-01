@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :matches, only: [:index, :show] do
     resources :messages, only: [:create]
   end
+
   get "profil/:id", to: "pages#profil", as: "profil"
   get "availability", to: "pages#availability", as: "availability"
   get "home/:id", to: "pages#match?", as: "new_match_or_match_favorable"
