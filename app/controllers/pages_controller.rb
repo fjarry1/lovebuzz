@@ -14,16 +14,45 @@ class PagesController < ApplicationController
     # Track.new response["item"]
   end
 
-  def profil
-    @user = User.find(params[:id])
+  def connexion
   end
 
   def geolocalize
-    puts "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST"
     @user = current_user
     @user.latitude = params[:latitude]
     @user.longitude = params[:longitude]
     @user.save
-    puts "END END END END END END END END END END"
+  end
+
+  def match?
+    @user_1 = current_user
+    @user_2 = User.find(params[:id])
+    @match = Match.where("(user_1_id = #{@user_1.id} OR user_2_id = #{@user_1.id}) AND (user_1_id = #{@user_2.id} OR user_2_id = #{@user_2.id})").first
+    if @match.nil?
+      Match.create(user_1_id: @user_1.id,
+                   user_2_id: @user_2.id,
+                   track_id: 1)
+      redirect_to home_path
+    else
+      @match.status = "Favorable"
+      @match.save
+      redirect_to matches_path
+    end
+  end
+
+  def no
+    @user_1 = current_user
+    @user_2 = User.find(params[:id])
+    @match = Match.where("(user_1_id = #{@user_1.id} OR user_2_id = #{@user_1.id}) AND (user_1_id = #{@user_2.id} OR user_2_id = #{@user_2.id})").first
+    if @match.nil?
+      Match.create(user_1_id: @user_1.id,
+                   user_2_id: @user_2.id,
+                   track_id: 1,
+                   status: "Declined")
+    else
+      @match.status = "Declined"
+      @match.save
+    end
+    redirect_to home_path
   end
 end

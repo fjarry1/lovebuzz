@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  root to: "pages#home"
+  root to: "pages#connexion"
+  get "home", to: "pages#home"
 
   patch 'geolocalize', to: 'pages#geolocalize'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,4 +14,6 @@ Rails.application.routes.draw do
 
   get "profil/:id", to: "pages#profil", as: "profil"
   get "availability", to: "pages#availability", as: "availability"
+  get "home/:id", to: "pages#match?", as: "new_match_or_match_favorable"
+  get "home/nomatch/:id", to: "pages#no", as: "no_match"
 end
