@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to root_path
   end
 
-  # méthode ci-dessous pour récupérer la track jouée, copié collé de la doc en dévellopement
+  # méthode ci-dessous pour récupérer la track jouée, copié collé de la doc, en dévellopement
   # def currently_playing
   #   url = "me/player/currently-playing"
   #   response = RSpotify.resolve_auth_request(@user.id, url)
