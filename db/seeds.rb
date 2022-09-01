@@ -49,7 +49,7 @@ user_mich = User.create!(email: "Michel-Du-75@gmail.com",
              description: "Hello everyone! It's hard to describe yourself hehe. I am #{DateTime.now.year - age.year} years old, recently separated and happy father of 2 wonderful children. I am looking for the person who will make my heart vibrate again. If you like sports and Derrick, that's a plus.",
              gender: "M",
              address: "16 villa gaudelet",
-             music_tastes: "Rock, Chanson française, Classique")
+             music_tastes: "Rock, Old french songs, Classic")
 
 file = URI.open("https://source.unsplash.com/s3mR42Spras")
 user_mich.photos.attach(io: file, filename: "avatar0.png", content_type: "image/png")
@@ -94,10 +94,10 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     first_name: first_name,
                     last_name: last_name,
                     birthdate: age,
-                    description: "Hey toi, je cherche à sortir de cette application le plus rapidement possible. J'aimerais quelqu'un avec qui voyager et qui aime cuisiner car je ne sais rien faire de mes 10 doigts.",
+                    description: "Hey you, I'm looking to get out of this app as soon as possible. I would like someone to travel with and who likes to cook because I can't do anything with my 10 fingers.",
                     gender: ["M","F","Other"].sample,
                     address: "16 villa gaudelet",
-                    music_tastes: "Rock, Karaoké, Métal")
+                    music_tastes: "Rock, Karaoke, Metal")
 (2..7).to_a.sample.times do
   puts "photo"
   file = URI.open("https://source.unsplash.com/random/?profile")
@@ -115,7 +115,7 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     first_name: first_name,
                     last_name: last_name,
                     birthdate: age,
-                    description: "Bonjour vous, Je n'aime pas les descriptions. Allons plutôt boire un verre ! (chez moi ou chez toi ?)",
+                    description: "Hello you, I don't like descriptions. Let's have a drink instead! (at my home or yours ?)",
                     gender: ["M","F","Other"].sample,
                     address: "16 villa gaudelet",
                     music_tastes: "Techno, Trans, Hardcore")
@@ -136,10 +136,10 @@ user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
                     first_name: first_name,
                     last_name: last_name,
                     birthdate: age,
-                    description: "Coucou, moi c'est #{first_name} #{last_name}, j'ai #{DateTime.now.year - age.year} ans. J'aime le fooding, les voyages, et l'humour ! Pas de one shot SVP...",
+                    description: "Hi, I'm #{first_name} #{last_name}, I'm #{DateTime.now.year - age.year}. I like fooding, traveling, and humor! No one shot please...",
                     gender: ["M","F","Other"].sample,
                     address: "Tour Eiffel",
-                    music_tastes: "J'écoute de tout !",
+                    music_tastes: "I love everything!",
                     latitude: 48.855782,
                     longitude: 2.293629)
 (2..7).to_a.sample.times do

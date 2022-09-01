@@ -1,5 +1,9 @@
 .custom-wrapper {
-  min-height: calc(100vh - 120px - 120px);
+  height: calc(100vh - 180px);
+}
+
+.overflowy {
+  overflow-y: scroll;
 }
 
 .footer {
@@ -26,6 +30,6 @@
   font-size: 55px;
 }
 
-body {
-  margin-top: 96px;
+.navbar {
+  position: unset;
 }
