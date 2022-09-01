@@ -6,6 +6,6 @@
     <p><%= message.content %></p>
   </div>
   <div class="message-infos">
-    <p><%= sender ? 'You' : message.user.full_name %> at <%= message.created_at.strftime("%H:%M") %></p>
+    <p><span><%= sender ? 'You' : message.user.full_name %></span> at <%= message.created_at.strftime("%H:%M") %></p>
   </div>
 </div>

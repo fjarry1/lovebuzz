@@ -9,8 +9,9 @@ class MessagesController < ApplicationController
       MatchChannel.broadcast_to(
         match,
         {
-        html: render_to_string(partial: "message", locals: { message: @message }),
-        user_id: @message.user.id
+          html: render_to_string(partial: "message", locals: { message: @message }),
+          user_id: @message.user.id,
+          user_name: @message.user.full_name
         }
       )
       head :ok
