@@ -1,23 +1,26 @@
-<div class="h-100 overflowy">
-  <div class="description">
-  <h1>Discover your potential matches!</h1>
-  </div>
-  <div class="card-container">
-    <div class="cards">
-      <%# User.near([current_user.latitude, current_user.longitude], current_user.preference.max_distance).to_a.select { |u| u unless u == current_user }.each do |user|%>
-      <% @users.each do |user| %>
-        <% unless user == current_user%>
-          <div class="card">
-            <div class="card-img-top" style="background-image:url(<%= cl_image_path user.photos.first.key, crop: :fill, gravity: :face %>)">
+<h1>Discover your potential matches!</h1>
+
+<div class="card-container my-5">
+  <div class="cards">
+    <%# User.near([current_user.latitude, current_user.longitude], current_user.preference.max_distance).to_a.select { |u| u unless u == current_user }.each do |user|%>
+    <% @users.to_a.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id} AND status = 'Pending') OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.each do |user| %>
+      <% unless user == current_user%>
+        <div class="card">
+          <div class="card-img-top" style="background-image:url(<%= cl_image_path user.photos.first.key, crop: :fill, gravity: :face %>)">
+          </div>
+          <div class="card-body">
+              <%= link_to profil_path(user) do%>
+              <h5><%= user.first_name %> <%= user.last_name %> - <%= user.age %></h5>
+              <% end %>
+          </div>
+          <div class="card-match">
+          <div><%= link_to(no_match_path(user.id), method: :post) do%>
+                    <i class="fa-solid fa-circle-xmark fs-1" style="color: red;"></i>
+                  <% end %>
             </div>
-            <div class="card-body">
-                <%= link_to profil_path(user) do%>
-                <h5><%= user.first_name %> <%= user.last_name %> - <%= user.age %></h5>
-                <% end %>
-            </div>
-            <div class="card-match">
-              <div><img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662026664/nope_yvmylc.png" alt=""></div>
-              <div><img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662026664/yaas_b8drcv.png" alt=""></div>
+            <div><%= link_to(new_match_or_match_favorable_path(user.id), method: :post) do%>
+                    <i class="fa-solid fa-circle-check fs-1" style="color: green;"></i>
+                  <% end %>
             </div>
           </div>
         <% end %>

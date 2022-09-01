@@ -39,6 +39,8 @@ file = URI.open("https://source.unsplash.com/bodgc6H44FA")
 user_jebg.photos.attach(io: file, filename: "avatar5-0.png", content_type: "image/png")
 user_jebg.save!
 
+puts "adding preference to Jeau-Eudes"
+
 puts "creating Michel-Du-75@gmail.com and azerty login"
 age = DateTime.now - 43.years
 user_mich = User.create!(email: "Michel-Du-75@gmail.com",
