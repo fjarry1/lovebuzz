@@ -31,37 +31,27 @@
   margin-right: 50px;
 }
 
+.card-match {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-body {
   display: flex;
   justify-content: space-between;
 }
 
-.title-container {
-  margin-top: 50px;
-  margin-left: 50px;
-}
-
-.card-title {
-  color: rgb(251, 239, 239);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+.h5 {
+  color: rgb(0, 0, 0);
   font-weight: bold;
   text-decoration: none;
 }
 
 h5:hover {
-  color: #FF5A60;
+  color: #505050;
   text-decoration: none;
 }
 
-.card-text{
-  text-overflow:ellipsis;
-  overflow:hidden;
-  // Addition lines for 2 line or multiline ellipsis
-  display: -webkit-box !important;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-}
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

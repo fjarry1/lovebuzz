@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   scope :available, -> { where(availability: true) } #permet de filtrer les user available
   scope :unavailable, -> { where(availability: false) }
-  
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   reverse_geocoded_by :latitude, :longitude
@@ -38,5 +38,11 @@ class User < ApplicationRecord
   def all_matches
     sql = "user_1_id = :user_id OR user_2_id = :user_id"
     Match.where(sql, user_id: self.id)
+  end
+
+  def age
+    age = DateTime.now.year - birthdate.year
+    age -= 1 if DateTime.now < birthdate + age.years
+    return age
   end
 end
