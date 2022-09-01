@@ -1,26 +1,41 @@
+.card-container {
+  background-color: #f8f8f8;
+}
+
+.description {
+  background-color: #f8f8f8;
+}
+
+.overflowy {
+  background-color: #f8f8f8;
+}
+
+.custom-wrapper {
+  background-color: #f8f8f8;
+}
+
 .card-img-top{
   overflow: hidden;
   vertical-align: middle;
   border-radius: 5px;
-  height: 220px;
+  height: 300px;
   background-size: cover;
   object-fit: contain;
   display: flex;
   align-items: flex-end;
   padding-left: 16px;
   border-bottom-right-radius: 130px;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 5px;
+  border: none;
   a {
     text-decoration: none;
   }
 }
 
-.card {
-  padding: 16px;
-  border-radius: 15px;
-  &.active {
-    border: solid 2px #FF5A60;
-  }
-}
 
 .cards {
   display: grid;
@@ -43,13 +58,13 @@
   justify-content: space-between;
 }
 
-.h5 {
-  color: rgb(0, 0, 0);
+.card-body a h5 {
+  color: rgb(42, 42, 42);
   font-weight: bold;
   text-decoration: none;
 }
 
-h5:hover {
+.card-body a h5:hover {
   color: #505050;
   text-decoration: none;
 }
