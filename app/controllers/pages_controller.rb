@@ -33,23 +33,24 @@ class PagesController < ApplicationController
   def match?
     @user_1 = current_user
     @user_2 = User.find(params[:id])
-    @match = Match.where("(user_1_id = #{@user_1.id} OR user_2_id = #{@user_1.id}) AND (user_1_id = #{@user_2.id} OR user_2_id = #{@user_2.id})").first
+    @match = Match.where("(user_1_id = #{@user_1.id} AND user_2_id = #{@user_2.id}) OR (user_1_id = #{@user_2.id} AND user_2_id = #{@user_1.id})").first
     if @match.nil?
       Match.create(user_1_id: @user_1.id,
                    user_2_id: @user_2.id,
-                   track_id: 1)
-      redirect_to home_path
+                   track_id: 1,
+                   status: "Pending")
+      redirect_to home_path, notice: "Its NOT A MATCH you dumb bitch"
     else
       @match.status = "Favorable"
       @match.save
-      redirect_to matches_path
+      redirect_to matches_path, notice: "It's a Match 🎉"
     end
   end
 
   def no
     @user_1 = current_user
     @user_2 = User.find(params[:id])
-    @match = Match.where("(user_1_id = #{@user_1.id} OR user_2_id = #{@user_1.id}) AND (user_1_id = #{@user_2.id} OR user_2_id = #{@user_2.id})").first
+    @match = Match.where("(user_1_id = #{@user_1.id} AND user_2_id = #{@user_2.id}) OR (user_1_id = #{@user_2.id} AND user_2_id = #{@user_1.id})").first
     if @match.nil?
       Match.create(user_1_id: @user_1.id,
                    user_2_id: @user_2.id,

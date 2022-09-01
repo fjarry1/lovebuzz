@@ -1,6 +1,6 @@
 <h1>mes matches</h1>
 
-<% @matches.each do |match| %>
+<% @matches.to_a.select{ |m| m if m.status == "Favorable"}.each do |match| %>
   <%= link_to match_path(match) do %>
     <div class="card mb-1">
       <div class="card-body">
@@ -9,3 +9,4 @@
     </div>
   <% end %>
 <% end %>
+<%= console %>
