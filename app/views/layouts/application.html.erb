@@ -15,8 +15,13 @@
     <%= render "shared/navbar" %>
       <%= yield %>
     </div>
-    <%= render "shared/footer" %>
+
+    <% unless action_name == "show" && controller_name == "matches" %>
+      <%= render "shared/footer" %>
+    <% end %>
+
     <%= render "shared/flashes" %>
+
   </body>
   <script src="sweetalert2.min.js"></script>
   <link rel="stylesheet" href="sweetalert2.min.css">

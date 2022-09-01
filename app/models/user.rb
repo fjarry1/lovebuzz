@@ -17,7 +17,6 @@ class User < ApplicationRecord
   validates :description, length: { minimum: 100 }
   # validate :old_enough?
 
-
   scope :available, -> { where(availability: true) } #permet de filtrer les user available
   scope :unavailable, -> { where(availability: false) }
 
@@ -26,10 +25,10 @@ class User < ApplicationRecord
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
 
-
   # def old_enough?
     # errors.add(:birthdate, "Vous devez avoir au moins 18 ans.") unless (DateTime.now - birthdate).to_i >= 6570
   # end
+
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
