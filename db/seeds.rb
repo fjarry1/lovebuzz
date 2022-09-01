@@ -22,7 +22,7 @@ user_jebg = User.create!(email: "Jean-Eudes.BG@gmail.com",
              first_name: "Jean-Eudes",
              last_name: "BG",
              birthdate: age,
-             description: "Salut Biloute, moi c'est Jean-Eude BG, le BG de 16 villa gaudelet 17. J'ai #{DateTime.now.year - age.year} ans. L'aprem c'est ricard devant Sardou. Dans la vie j'aime pas les débats: y'a pas à tortiller du cul pour chier droit.",
+             description: "Salut Biloute, moi c'est Jean-Eude BG, le BG de Paris 17. J'ai #{DateTime.now.year - age.year} ans. L'aprem c'est ricard devant Sardou. Dans la vie j'aime pas les débats: y'a pas à tortiller du cul pour chier droit.",
              gender: "M",
              address: "16 villa gaudelet",
              music_tastes: "Disco, Funk, Soul")
@@ -38,6 +38,13 @@ user_jebg.photos.attach(io: file, filename: "avatar4-0.png", content_type: "imag
 file = URI.open("https://source.unsplash.com/bodgc6H44FA")
 user_jebg.photos.attach(io: file, filename: "avatar5-0.png", content_type: "image/png")
 user_jebg.save!
+
+puts "adding preference to Jeau-Eudes"
+Preference.create!(user_id: user_jebg.id,
+                   min_age: 18,
+                   max_age: 99,
+                   gender: "M",
+                   max_distance: 5)
 
 puts "creating Michel-Du-75@gmail.com and azerty login"
 age = DateTime.now - 43.years
@@ -62,6 +69,33 @@ user_mich.photos.attach(io: file, filename: "avatar4-0.png", content_type: "imag
 file = URI.open("https://source.unsplash.com/KLLcTHE20bI")
 user_mich.photos.attach(io: file, filename: "avatar5-0.png", content_type: "image/png")
 user_mich.save!
+
+puts "creating Match between Jean-Eudes et Michel"
+
+match = Match.create!(user_1_id: user_jebg.id,
+              user_2_id: user_mich.id,
+              track_id: rand(1..100))
+
+puts "creating messages between Jean-Eudes et Michel"
+
+Message.create!(match_id: match.id,
+                user_id: user_jebg.id,
+                content: "Salut 👋 ça fart ?")
+sleep(2)
+
+Message.create!(match_id: match.id,
+                user_id: user_mich.id,
+                content: "Hello 👋 ça fart bien ici, et toi biloute ?")
+sleep(2)
+
+Message.create!(match_id: match.id,
+                user_id: user_jebg.id,
+                content: "Oklm fréro")
+sleep(2)
+
+Message.create!(match_id: match.id,
+                user_id: user_jebg.id,
+                content: "Tu suces ?")
 
 puts "creating user n°1"
 first_name = Faker::Name.first_name
