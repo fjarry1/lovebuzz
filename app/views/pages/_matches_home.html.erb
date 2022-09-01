@@ -14,17 +14,18 @@
               <% end %>
           </div>
           <div class="card-match">
-          <div><%= link_to(no_match_path(user.id), method: :post) do%>
-                    <i class="fa-solid fa-circle-xmark fs-1" style="color: red;"></i>
-                  <% end %>
-            </div>
-            <div><%= link_to(new_match_or_match_favorable_path(user.id), method: :post) do%>
-                    <i class="fa-solid fa-circle-check fs-1" style="color: green;"></i>
-                  <% end %>
+            <div><%= link_to(no_match_path(user.id), method: :post) do%>
+                      <i class="fa-solid fa-circle-xmark fs-1" style="color: red;"></i>
+                    <% end %>
+              </div>
+              <div><%= link_to(new_match_or_match_favorable_path(user.id), method: :post) do%>
+                      <i class="fa-solid fa-circle-check fs-1" style="color: green;"></i>
+                    <% end %>
+              </div>
             </div>
           </div>
-        <% end %>
       <% end %>
+    <% end %>
     </div>
   </div>
 </div>
