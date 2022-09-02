@@ -1,6 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <div class="w-100 row mx-0">
-    <div class="col-4"></div>
+    <div class="col-4 d-flex justify-content-start align-items-center"> <% if action_name == "show" && controller_name == "matches" %>
+      <%= link_to matches_path do %>
+        <img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662034166/navbar2_bz1nie.png" alt="">
+      <% end %>
+    <% end %>
+    </div>
     <div class="col-4 d-flex justify-content-center">
       <%= link_to home_path, class: "navbar-brand me-0" do %>
         <%= image_tag "https://res.cloudinary.com/ddat564z1/image/upload/v1662033727/logo-02_jj2k5t.png" %>
@@ -11,7 +16,7 @@
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= cl_image_tag current_user.photos.first.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Edit my profil", profil_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Desactivate my account", availability_path(current_user), class: "dropdown-item" %>

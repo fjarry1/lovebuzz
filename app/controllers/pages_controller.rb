@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :connexion ]
 
   def home
     # return unless user_signed_in?
@@ -42,7 +42,7 @@ class PagesController < ApplicationController
                    user_2_id: @user_2.id,
                    track_id: 1,
                    status: "Pending")
-      redirect_to home_path, notice: "Its NOT A MATCH you dumb bitch"
+      redirect_to home_path
     else
       @match.status = "Favorable"
       @match.save
