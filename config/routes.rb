@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "availability", to: "pages#availability", as: "availability"
   get "home/:id", to: "pages#match?", as: "new_match_or_match_favorable"
   get "home/nomatch/:id", to: "pages#no", as: "no_match"
+  # get "home", to: "pages#connexion", as: "entry_page"
 end
