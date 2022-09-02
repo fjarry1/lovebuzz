@@ -2,7 +2,9 @@
 
 <div class="message <%= 'sender' if sender %>">
   <div class="message-content">
-    <%= image_tag "https://avatars.githubusercontent.com/u/46308640?v=4", alt: "#{message.user.full_name}'s avatar", class: 'message-avatar' %>
+    <%= link_to profil_path(message.user) do%>
+      <%= image_tag cl_image_path(message.user.photos.first.key), alt: "#{message.user.full_name}'s avatar", class: 'message-avatar' %>
+    <% end %>
     <p><%= message.content %></p>
   </div>
   <div class="message-infos">

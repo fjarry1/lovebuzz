@@ -7,7 +7,7 @@
     <% @matches.each do |match| %>
       <%= link_to match_path(match) do %>
         <div class="card-match-list mb-2">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <%= cl_image_tag match.user_2.photos.first.key %>
           <div class="card-match-list-infos">
             <%= match.interlocutor_of(current_user).full_name %>
             <p><%= match.messages.last&.content&.truncate(50) %></p>
