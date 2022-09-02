@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :connexion ]
 
   def home
     # return unless user_signed_in?
@@ -9,8 +9,8 @@ class PagesController < ApplicationController
     url = "me/player/currently-playing"
     if user_signed_in? && !(current_user.spotify_id.nil?)
       response = RSpotify.resolve_auth_request(current_user.spotify_id, url)
-      @title = response["item"]["name"]
       @artist = response["item"]["artists"][0]["name"]
+      @title = response["item"]["name"]
     end
     # return response if RSpotify.raw_response
     # Track.new response["item"]

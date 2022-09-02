@@ -1,1 +1,15 @@
 <%# <%= link_to "sign in", home_path %>
+
+<body>
+  <div class="container">
+    <div class="position-absolute top-50 start-50 translate-middle logo-lovebuzz">
+      <img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662033727/logo-02_jj2k5t.png" alt="logo lovebuzz">
+    </div>
+    <div class="position-absolute top-100 start-50 translate-middle logo-spotify">
+    <h1 style="color: white;">connect with</h1>
+      <%= link_to user_spotify_omniauth_authorize_path do %>
+        <%= image_tag "Spotify_Logo_CMYK_White.png", alt: "spotify link", class: "spotify-png"%>
+      <% end %>
+    </div>
+  </div>
+</body>
