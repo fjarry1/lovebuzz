@@ -9,11 +9,14 @@ class PagesController < ApplicationController
     url = "me/player/currently-playing"
     if user_signed_in? && !(current_user.spotify_id.nil?)
       response = RSpotify.resolve_auth_request(current_user.spotify_id, url)
-      @artist = response["item"]["artists"][0]["name"]
       @title = response["item"]["name"]
+      @artist = response["item"]["artists"][0]["name"]
+      # return response if RSpotify.raw_response
+      # Track.new response["item"]
+    else
+      @title = "Baby Shark"
+      @artist = "Pinkfong"
     end
-    # return response if RSpotify.raw_response
-    # Track.new response["item"]
   end
 
   def profil
