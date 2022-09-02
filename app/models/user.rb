@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:spotify]
   has_one :preference
-  has_many :blocked_users
-  has_many :all_matches
+  has_many :blocked_users, dependent: :destroy
+  # has_many :matches, dependent: :destroy
   has_many :messages, dependent: :destroy
 
   has_one :preference, dependent: :destroy
@@ -24,6 +24,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
+  before_destroy :destroy_all_matches
 
   # def old_enough?
     # errors.add(:birthdate, "Vous devez avoir au moins 18 ans.") unless (DateTime.now - birthdate).to_i >= 6570
@@ -37,6 +38,10 @@ class User < ApplicationRecord
   def all_matches
     sql = "user_1_id = :user_id OR user_2_id = :user_id"
     Match.where(sql, user_id: self.id)
+  end
+
+  def destroy_all_matches
+    all_matches.each(&:destroy)
   end
 
   def age

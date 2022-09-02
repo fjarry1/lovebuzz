@@ -43,15 +43,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_102021) do
   end
 
   create_table "blocked_users", force: :cascade do |t|
-    t.integer "user_1_id"
-    t.integer "user_2_id"
+    t.bigint "user_1_id", null: false
+    t.bigint "user_2_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_1_id"], name: "index_blocked_users_on_user_1_id"
+    t.index ["user_2_id"], name: "index_blocked_users_on_user_2_id"
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer "user_1_id"
-    t.integer "user_2_id"
+    t.integer "user_1", null: false
+    t.integer "user_2", null: false
     t.string "track_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,5 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_102021) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blocked_users", "users", column: "user_1_id"
+  add_foreign_key "blocked_users", "users", column: "user_2_id"
   add_foreign_key "preferences", "users"
 end
