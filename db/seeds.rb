@@ -43,7 +43,7 @@ puts "adding preference to Jeau-Eudes"
 
 puts "creating Michel-Du-75@gmail.com and azerty login"
 age = DateTime.now - 43.years
-user_mich = User.create!(email: "Michel-Du-75@gmail.com",
+user_mich = User.create!(email: "francoisjarry1@gmail.com",
              password: "azerty",
              first_name: "Michel",
              last_name: "Du-75",
