@@ -39,7 +39,7 @@ class PagesController < ApplicationController
                    user_2_id: @user_2.id,
                    track_id: 1,
                    status: "Pending")
-      redirect_to home_path, notice: "Its NOT A MATCH you dumb bitch"
+      redirect_to home_path
     else
       @match.status = "Favorable"
       @match.save
