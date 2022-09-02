@@ -10,10 +10,10 @@ require "open-uri"
 require "date"
 
 puts "cleaning database"
-User.destroy_all
-Match.destroy_all
 Message.destroy_all
 BlockedUser.destroy_all
+Match.destroy_all
+User.destroy_all
 
 puts "creating Jean-Eudes.BG@gmail.com and azerty login"
 age = DateTime.now - 25.years
