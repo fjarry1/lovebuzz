@@ -1,6 +1,19 @@
 
 $card-height: 51vh;
 
+.end-message {
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  position: absolute;
+  top: 34vh;
+  width: 100vw;
+  padding: 30px;
+  font-size: 20px;
+}
+
 .tinder {
   width: 100%;
   overflow: hidden;
