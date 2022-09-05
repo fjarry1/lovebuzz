@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :connexion ]
 
   def home
-    # return unless user_signed_in?
+    # return unless user_signed_in?*
+    @hide_overflow = true
 
     @users = User.all
 
