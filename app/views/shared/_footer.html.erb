@@ -1,25 +1,29 @@
 <% if user_signed_in? %>
   <% unless @title.nil? && @artist.nil? %>
     <div class="currently-playing">
-      <div class="icon-spotify">
-        <img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662111081/logo-spotify_irugym.png" alt="">
-      </div>
-      <div class="player">
-        <span><%= @title %></span> - <span><%= @artist %></span>
+      <%# <div class="icon-spotify"> %>
+        <%# <img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662111081/logo-spotify_irugym.png" alt=""> %>
+      <%# </div> %>
+      <div class="player w-100 d-flex">
+        <i class="fa-brands fa-spotify logo-spotify" style="font-size: 40px"></i>
+        <div class="song-title-player w-100">
+          <span> <%= @title %></span> - <span><%= @artist %></span>
+        </div>
       </div>
     </div>
   <% end %>
   <div class="footer fixed-bottom">
     <div class="footer-links">
       <%= link_to profil_path(current_user) do %>
-       <img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662034166/navbar1_nvzpoo.png" alt="">
+       <i class="fa-solid fa-user" style="color:white"></i>
       <% end %>
       <%# redirige vers l'index des matches %>
       <%= link_to matches_path do %>
-        <img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662034166/navbar2_bz1nie.png" alt="">
+        <i class="fa-solid fa-heart" style="color:white"></i>
       <% end %>
       <%# redirige vers ? %>
-      <a href="#"><img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662034166/navbar3_twapv8.png" alt=""></a>
+      <i class="fa-solid fa-bars" style="font-size:54px; color:white"></i>
+      <%# <i class="fa-solid fa-ellipsis" style="font-size:40px; color:white"></i> %>
     </div>
   </div>
 <% end %>
