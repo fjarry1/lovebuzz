@@ -1,55 +1,26 @@
-<div class="h-100 overflowy">
-  <div class="description">
-    <h1>Discover your potential matches!</h1>
-  </div>
-  <div class="card-container">
-    <div class="cards">
-      <% if current_user.preference %>
-        <% User.near([current_user.latitude, current_user.longitude], current_user.preference.max_distance).to_a.select { |u| u unless u == current_user }.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.select { |u| u if u.age >= current_user.preference.min_age && u.age <= current_user.preference.max_age}.each do |user|%>
-          <div class="card">
-              <div class="card-img-top" style="background-image:url(<%= cl_image_path user.photos.first.key, crop: :fill, gravity: :face %>)">
-              </div>
-              <div class="card-body">
-                  <%= link_to profil_path(user) do%>
-                  <h5><%= user.first_name %> <%= user.last_name %> - <%= user.age %> years</h5>
-                  <% end %>
-              </div>
-              <div class="card-match">
-                <div><%= link_to(no_match_path(user.id), method: :post) do%>
-                          <i class="fa-solid fa-circle-xmark fs-1" style="color: #D61C4E;"></i>
-                        <% end %>
-                  </div>
-                  <div><%= link_to(new_match_or_match_favorable_path(user.id), method: :post) do%>
-                          <i class="fa-solid fa-circle-check fs-1" style="color: #D61C4E;"></i>
-                        <% end %>
-                  </div>
-                </div>
-              </div>
-        <% end %>
-      <% else %>
-        <% @users.to_a.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.each do |user| %>
-            <div class="card">
-              <div class="card-img-top" style="background-image:url(<%= cl_image_path user.photos.first.key, crop: :fill, gravity: :face %>)">
-              </div>
-              <div class="card-body">
-                  <%= link_to profil_path(user) do%>
-                  <h5><%= user.first_name %> <%= user.last_name %> - <%= user.age %> years</h5>
-                  <% end %>
-              </div>
-              <div class="card-match">
-                <div><%= link_to(no_match_path(user.id), method: :post) do%>
-                          <i class="fa-solid fa-circle-xmark fs-1" style="color: #D61C4E;"></i>
-                        <% end %>
-                  </div>
-                  <div><%= link_to(new_match_or_match_favorable_path(user.id), method: :post) do%>
-                          <i class="fa-solid fa-circle-check fs-1" style="color: #D61C4E;"></i>
-                        <% end %>
-                  </div>
-                </div>
-              </div>
-        <% end %>
-      <% end %>
+<div class="tinder" data-controller="swipe">
+
+  <div class="tinder--cards">
+    <% @users.to_a.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.each do |user| %>
+      <div class="tinder--card" data-swipe-target="card" data-id="<%= user.id %>">
+        <div class="tinder--status">
+          <i class="fa-solid fa-xmark"></i>
+          <i class="fa fa-heart"></i>
+        </div>
+        <%= cl_image_tag user.photos.first.key %>
+        <h3><%= user.first_name %> <%= user.last_name %></h3>
+        <h4><%= user.age %> years old</h4>
       </div>
-    </div>
+    <% end %>
   </div>
+
+  <div class="tinder--buttons">
+    <button id="nope" data-swipe-target="nopeBtn">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button id="love" data-swipe-target="likeBtn">
+      <i class="fa fa-heart"></i>
+    </button>
+  </div>
+
 </div>
