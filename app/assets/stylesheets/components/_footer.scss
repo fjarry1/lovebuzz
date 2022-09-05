@@ -1,17 +1,14 @@
-.custom-wrapper {
-  height: calc(100vh - 180px);
-}
-
-.overflowy {
-  overflow-y: scroll;
+.custom-wrapper-for-all {
+  min-height: calc(100vh - 96px - 96px - 53px);
+  margin-bottom: calc(96px + 53px);
 }
 
 .footer {
-  background: $jaune;
+  background: transparent;
   display: flex;
   height: 96px;
-  border-radius: 8px 8px 0px 0px;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -32,4 +29,24 @@
 
 .navbar {
   position: unset;
+}
+
+.currently-playing {
+  background-color: white;
+  display: flex;
+  height: 53px;
+  width: 90%;
+  margin-left: 20px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 96px;
+}
+
+
+.player {
+  font-size: 16px;
+  color: $noir;
+  font-weight: lighter;
 }

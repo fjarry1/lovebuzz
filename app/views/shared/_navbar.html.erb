@@ -18,7 +18,9 @@
             <li class="nav-item dropdown">
               <%= cl_image_tag current_user.photos.first.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Edit my profil", profil_path(current_user), class: "dropdown-item" %>
+                <%= link_to "My profile", profil_path(current_user), class: "dropdown-item" %>
+                <%= link_to "My match preference", user_show_preference_path(current_user), class: "dropdown-item"%>
+                <%= link_to "Edit my profile", edit_user_registration_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Desactivate my account", availability_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>

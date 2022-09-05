@@ -8,8 +8,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :matches, only: [:index, :show] do
+  resources :matches, only: [:index, :show, :create] do
     resources :messages, only: [:create]
+  end
+
+  resources :user do
+    resources :preferences, only: [:edit, :new, :update, :create]
+    get "preferences", to: "preferences#show", as: "show_preference"
   end
 
   get "profil/:id", to: "pages#profil", as: "profil"

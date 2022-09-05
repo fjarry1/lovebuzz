@@ -1,4 +1,14 @@
 <% if user_signed_in? %>
+  <% unless @title.nil? && @artist.nil? %>
+    <div class="currently-playing">
+      <div class="icon-spotify">
+        <img src="https://res.cloudinary.com/ddat564z1/image/upload/v1662111081/logo-spotify_irugym.png" alt="">
+      </div>
+      <div class="player">
+        <span><%= @title %></span> - <span><%= @artist %></span>
+      </div>
+    </div>
+  <% end %>
   <div class="footer fixed-bottom">
     <div class="footer-links">
       <%= link_to profil_path(current_user) do %>

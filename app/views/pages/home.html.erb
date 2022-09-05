@@ -1,23 +1,24 @@
 <%#= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
-<%#
-  <div class="different-homes"> >
+  <%# <div class="different-homes"> %>
+    <%#= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
 
-  <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
-
-<%#     <% if current_user.nil?%>
-<%#       <%= render "pages/signup_home" %>
-    <%# elsif current_user.currently_playing? %>
-<%#       <%= render "pages/matches_home" %>
-<%#     <% elsif current_user.preference.present? %>
-<%#       <%= render "pages/no_matches_home" %>
+    <%# if current_user.nil?%>
+      <%#= render "pages/signup_home" %>
+    <%# elsif current_user.spotify_id %>
+      <%# if current_user.currently_playing? %>
+        <%#= render "pages/matches_home" %>
+      <%# end %>
+    <%# elsif current_user.preference.present? %>
+      <%#= render "pages/no_matches_home" %>
       <%#= render "pages/matches_home" %>
     <%# elsif current_user.preference.present? %>
       <%#= render "pages/no_matches_home" %>
-
     <%# else %>
       <%#= render "signup_home" %>
     <%# end %>
-<%#   </div> %>
+  <%# </div> %>
 
 
 <%= render "matches_home", users: @users %>
+  </div>
+

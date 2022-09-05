@@ -12,6 +12,9 @@
 @import "pages/index";
 
 body {
+  h1 {
+    color: white;
+  }
   a {
     text-decoration: none !important;
     color: $gris;

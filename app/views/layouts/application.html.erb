@@ -9,22 +9,25 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
+    <body data-controller="geocode" style="<%= 'overflow:hidden' if @hide_overflow%>">
+      <%= render "shared/navbar" unless (action_name == "connexion" && controller_name == "pages")%>
+      <% unless (action_name == "connexion" && controller_name == "pages") %>
+        <div class="official-bg">
+      <% end %>
+        <div class="<%= action_name == "show" && controller_name == "matches" ? "custom-wrapper-for-chat" : "custom-wrapper-for-all" %>" >
+          <%= yield %>
+        </div>
 
-  <body data-controller="geocode">
-    <%= render "shared/navbar" if action_name == "show" && controller_name == "matches" %>
-    <div class="<%= action_name == "show" && controller_name == "matches" ? "custom-wrapper-for-chat" : "custom-wrapper" %>" >
-    <%= render "shared/navbar" unless (action_name == "show" && controller_name == "matches") || (action_name == "connexion" && controller_name == "pages")%>
-      <%= yield %>
-    </div>
-
-    <% unless (action_name == "show" && controller_name == "matches") || (action_name == "connexion" && controller_name == "pages")%>
-      <%= render "shared/footer" %>
-    <% end %>
-
-    <%= render "shared/flashes" %>
+        <% unless (action_name == "show" && controller_name == "matches") || (action_name == "connexion" && controller_name == "pages")%>
+          <%= render "shared/footer" %>
+        <% end %>
 
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    
+        <%= render "shared/flashes" %>
+            <% unless (action_name == "connexion" && controller_name == "pages") %>
+        </div>
+      <% end %>
+
   </body>
-<%#   <script src="sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="sweetalert2.min.css"> %>
 </html>

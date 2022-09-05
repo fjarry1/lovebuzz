@@ -1,6 +1,10 @@
 .avatar {
   width: 66px;
   border-radius: 20%;
+  overflow: hidden;
+  object-fit: cover;
+  height: 66px;
+  border: 1px solid $orange;
 }
 
 .avatar-bordered {
