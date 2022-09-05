@@ -1,7 +1,7 @@
-<div class="h-100 overflowy">
 <div class="description">
   <h1>Discover your potential matches!</h1>
 </div>
+
   <div class="card-container">
     <div class="cards">
       <%# User.near([current_user.latitude, current_user.longitude], current_user.preference.max_distance).to_a.select { |u| u unless u == current_user }.each do |user|%>
@@ -31,4 +31,3 @@
       </div>
     </div>
   </div>
-</div>

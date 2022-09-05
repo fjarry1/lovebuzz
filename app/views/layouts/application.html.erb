@@ -11,9 +11,8 @@
   </head>
 
   <body data-controller="geocode">
-    <%= render "shared/navbar" if action_name == "show" && controller_name == "matches" %>
-    <div class="<%= action_name == "show" && controller_name == "matches" ? "custom-wrapper-for-chat" : "custom-wrapper" %>" >
-    <%= render "shared/navbar" unless (action_name == "show" && controller_name == "matches") || (action_name == "connexion" && controller_name == "pages")%>
+    <%= render "shared/navbar" unless (action_name == "connexion" && controller_name == "pages")%>
+    <div class="<%= action_name == "show" && controller_name == "matches" ? "custom-wrapper-for-chat" : "custom-wrapper-for-all" %>" >
       <%= yield %>
     </div>
 
