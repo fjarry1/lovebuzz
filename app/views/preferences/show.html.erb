@@ -14,7 +14,7 @@
       <h3>Gender</h3>
       <p class="mb-3 mt-2"><%= @preference.gender%></p>
       <h3></h3>
+      <%= link_to "Edit my match preferences", edit_user_preference_path(current_user, current_user.preference), class:"btn border-success"%>
     <% end %>
-    <%= link_to "Edit my match preferences", edit_user_preference_path(current_user, current_user.preference), class:"btn border-success"%>
   </div>
 </div>
