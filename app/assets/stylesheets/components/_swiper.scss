@@ -1,0 +1,132 @@
+.tinder {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.loaded.tinder {
+  opacity: 1;
+}
+
+.tinder--status {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+
+  i {
+    font-size: 100px;
+    opacity: 0;
+    transform: scale(0.3);
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    width: 100px;
+    margin-left: -50px;
+  }
+}
+
+.tinder_love .fa-heart {
+  opacity: 0.7;
+  transform: scale(1);
+}
+
+.tinder_nope .fa-xmark {
+  opacity: 0.7;
+  transform: scale(1);
+}
+
+.tinder--cards {
+  margin-top: 50px;
+  flex-grow: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.tinder--card {
+  display: inline-block;
+  width: 90vw;
+  max-width: 400px;
+  height: 45vh;
+  background: #FFFFFF;
+  padding-bottom: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+
+  img {
+    max-width: 100%;
+    pointer-events: none;
+  }
+
+  h3 {
+    margin-top: 32px;
+    font-size: 32px;
+    padding: 0 16px;
+    pointer-events: none;
+  }
+  p {
+    margin-top: 24px;
+    font-size: 20px;
+    padding: 0 16px;
+    pointer-events: none;
+  }
+}
+
+.moving.tinder--card {
+  transition: none;
+  cursor: grabbing;
+}
+
+.tinder--buttons {
+  flex: 0.80 0 0px;
+  text-align: center;
+  padding-top: 10px;
+
+  i {
+    font-size: 32px;
+    vertical-align: middle;
+    ::after, ::before {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  button {
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    border: 0;
+    background: #FFFFFF;
+    display: inline-block;
+    margin: 0 8px;
+    padding: 0;
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.fa-heart {
+  color: #FFACE4;
+}
+
+.fa-xmark {
+  color: #CDD6DD;
+}
