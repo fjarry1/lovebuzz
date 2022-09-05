@@ -152,7 +152,6 @@ export default class extends Controller {
 
     card.style.transform = `translate(${minus}${moveOutWidth}px, -100px) rotate(${minus}30deg)`;
     card.classList.add('removed');
-    console.log(card)
     if (love) {
       this.liked(card.dataset.id)
     } else {
