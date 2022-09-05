@@ -2,18 +2,20 @@
   <h1>My Matches</h1>
 </div>
 
-<div class="container">
-  <div class="card-chat">
-    <% @matches.each do |match| %>
-      <%= link_to match_path(match) do %>
-        <div class="card-match-list mb-2">
-          <%= cl_image_tag match.user_2.photos.first.key %>
-          <div class="card-match-list-infos">
-            <%= match.interlocutor_of(current_user).full_name %>
-            <p><%= match.messages.last&.content&.truncate(50) %></p>
+<div class="overflowy">
+  <div class="container">
+    <div class="card-chat">
+      <% @matches.each do |match| %>
+        <%= link_to match_path(match) do %>
+          <div class="card-match-list mb-2">
+            <%= cl_image_tag match.user_2.photos.first.key %>
+            <div class="card-match-list-infos">
+              <%= match.interlocutor_of(current_user).full_name %>
+              <p><%= match.messages.last&.content&.truncate(50) %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

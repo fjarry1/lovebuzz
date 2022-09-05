@@ -1,13 +1,11 @@
-.custom-wrapper {
-  height: calc(100vh - 180px);
-}
-
-.overflowy {
-  overflow-y: scroll;
+.custom-wrapper-for-all {
+  min-height: calc(100vh - 96px - 96px - 53px);
+  margin-top: 96px;
+  margin-bottom: calc(96px + 53px);
 }
 
 .footer {
-  background: $jaune;
+  background: transparent;
   display: flex;
   height: 96px;
 }
@@ -35,7 +33,7 @@
 }
 
 .currently-playing {
-  background-color: $rouge;
+  background-color: white;
   display: flex;
   height: 53px;
   width: 100%;
@@ -48,6 +46,6 @@
 
 .player {
   font-size: 16px;
-  color: white;
+  color: $noir;
   font-weight: lighter;
 }
