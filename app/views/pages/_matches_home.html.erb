@@ -4,8 +4,8 @@
 </div>
   <div class="card-container">
     <div class="cards">
-      <%# User.near([current_user.latitude, current_user.longitude], current_user.preference.max_distance).to_a.select { |u| u unless u == current_user }.each do |user|%>
-      <% @users.to_a.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.each do |user| %>
+      <% User.near([current_user.latitude, current_user.longitude], current_user.preference.max_distance).to_a.select { |u| u unless u == current_user }.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.select { |u| u if u.age >= current_user.preference.min_age && u.age <= current_user.preference.max_age}.each do |user|%>
+      <%# @users.to_a.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.each do |user| %>
         <% unless user == current_user%>
           <div class="card">
             <div class="card-img-top" style="background-image:url(<%= cl_image_path user.photos.first.key, crop: :fill, gravity: :face %>)">
