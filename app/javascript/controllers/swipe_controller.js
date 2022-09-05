@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import Hammer from 'hammerjs'
+import Swal from 'sweetalert2'
 
 export default class extends Controller {
   static targets = [ "card", "nopeBtn", "likeBtn" ]
@@ -31,8 +32,19 @@ export default class extends Controller {
       headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf },
     }
 
-    fetch(`/matches?user_id=${elementId}`, options)
-
+    fetch(`/matches?user_id=${elementId}&like=true`, options)
+      .then(response => response.json())
+      .then((data) => {
+        if (data.match){
+          Swal.fire({
+            icon: 'success',
+            title: 'It\'s a match! 🍆💦🍑',
+            text: `You were listening ${data.track_name} - ${data.artist_name} at the same time with ${data.username}`,
+            footer: '<a href="">Keep swiping or chat?</a>'
+          })
+        }
+        // this._noCardsLeft()
+      })
   }
 
   disliked(elementId) {
@@ -44,7 +56,11 @@ export default class extends Controller {
       headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf },
     }
 
-    fetch(`/matches?user_id=${elementId}`, options)
+    fetch(`/matches?user_id=${elementId}&like=false`, options)
+      .then(response => response.json())
+      .then((data) => {
+        // this._noCardsLeft()
+      })
   }
 
   _initCards(card, index) {
@@ -58,6 +74,18 @@ export default class extends Controller {
 
     this.element.classList.add('loaded');
   }
+
+  // _noCardsLeft() {
+  //   setTimeout(() => {
+  //     if (this._activeCards().length === 0) {
+  //       Swal.fire({
+  //         icon: 'warning',
+  //         title: 'You don’t have any matches yet ☹️',
+  //         text: `Maybe you should listen to some other song and let the magic happen !!`,
+  //       })
+  //     }
+  //   }, 300);
+  // }
 
   _initSwipe() {
     this.cardTargets.forEach((el) => {
@@ -124,7 +152,12 @@ export default class extends Controller {
 
     card.style.transform = `translate(${minus}${moveOutWidth}px, -100px) rotate(${minus}30deg)`;
     card.classList.add('removed');
-
+    console.log(card)
+    if (love) {
+      this.liked(card.dataset.id)
+    } else {
+      this.disliked(card.dataset.id)
+    }
     this._initCards();
     event.preventDefault();
   }
