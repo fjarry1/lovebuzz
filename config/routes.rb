@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+
   resources :user do
     resources :preferences, only: [:edit, :new, :update, :create]
     get "preferences", to: "preferences#show", as: "show_preference"
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
 
   get "profil/:id", to: "pages#profil", as: "profil"
   get "availability", to: "pages#availability", as: "availability"
-  get "home/:id", to: "pages#match?", as: "new_match_or_match_favorable"
-  get "home/nomatch/:id", to: "pages#no", as: "no_match"
-  # get "home", to: "pages#connexion", as: "entry_page"
+  get "matches/:id/accept", to: "matches#accept", as: "match_accept"
+  get "matches/:id/reject", to: "matches#reject", as: "match_reject"
 end

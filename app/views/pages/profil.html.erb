@@ -29,11 +29,11 @@
 
   </div>
   <div class="card-match mb-5">
-    <div><%= link_to(no_match_path(@user.id), method: :post) do%>
+    <div><%= link_to(match_reject_path(@user.id), method: :post) do%>
               <i class="fa-solid fa-circle-xmark" style="color: #D61C4E; font-size: 45px;"></i>
             <% end %>
       </div>
-      <div ><%= link_to(new_match_or_match_favorable_path(@user.id), method: :post) do%>
+      <div ><%= link_to(match_accept_path(@user.id), method: :post) do%>
               <i class="fa-solid fa-circle-check" style="color: #D61C4E; font-size: 45px;"></i>
             <% end %>
       </div>
