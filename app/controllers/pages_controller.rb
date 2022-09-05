@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :connexion ]
 
   def home
     # return unless user_signed_in?
@@ -7,23 +7,62 @@ class PagesController < ApplicationController
     @users = User.all
 
     url = "me/player/currently-playing"
-    response = RSpotify.resolve_auth_request(current_user.spotify_id, url)
-    @title = response["item"]["name"]
-    @artist = response["item"]["artists"][0]["name"]
-    # return response if RSpotify.raw_response
-    # Track.new response["item"]
+    if user_signed_in? && !(current_user.spotify_id.nil?)
+      response = RSpotify.resolve_auth_request(current_user.spotify_id, url)
+      @title = response["item"]["name"]
+      @artist = response["item"]["artists"][0]["name"]
+      # return response if RSpotify.raw_response
+      # Track.new response["item"]
+    else
+      @title = "Baby Shark"
+      @artist = "Pinkfong"
+    end
   end
 
   def profil
     @user = User.find(params[:id])
   end
 
+  def connexion
+  end
+
   def geolocalize
-    puts "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST"
     @user = current_user
     @user.latitude = params[:latitude]
     @user.longitude = params[:longitude]
     @user.save
-    puts "END END END END END END END END END END"
+  end
+
+  def match?
+    @user_1 = current_user
+    @user_2 = User.find(params[:id])
+    @match = Match.where("(user_1_id = #{@user_1.id} AND user_2_id = #{@user_2.id}) OR (user_1_id = #{@user_2.id} AND user_2_id = #{@user_1.id})").first
+    if @match.nil?
+      Match.create(user_1_id: @user_1.id,
+                   user_2_id: @user_2.id,
+                   track_id: 1,
+                   status: "Pending")
+      redirect_to home_path
+    else
+      @match.status = "Favorable"
+      @match.save
+      redirect_to matches_path, notice: "It's a Match 🎉"
+    end
+  end
+
+  def no
+    @user_1 = current_user
+    @user_2 = User.find(params[:id])
+    @match = Match.where("(user_1_id = #{@user_1.id} AND user_2_id = #{@user_2.id}) OR (user_1_id = #{@user_2.id} AND user_2_id = #{@user_1.id})").first
+    if @match.nil?
+      Match.create(user_1_id: @user_1.id,
+                   user_2_id: @user_2.id,
+                   track_id: 1,
+                   status: "Declined")
+    else
+      @match.status = "Declined"
+      @match.save
+    end
+    redirect_to home_path
   end
 end

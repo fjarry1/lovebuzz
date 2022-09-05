@@ -16,6 +16,7 @@ export default class extends Controller {
       { received: this.#processMessage.bind(this) }
     )
     this.#scrollToBottom()
+
   }
 
   disconnect() {
@@ -29,7 +30,9 @@ export default class extends Controller {
   #processMessage(data) {
     const sender = this.userIdValue == data.user_id
     const msgElement = this.#buildHTML(data.html)
+
     if (!sender) msgElement.classList.remove('sender')
+    if (!sender) msgElement.querySelector('.message-infos span').innerText = data.user_name
     this.#insertMessage(msgElement)
     this.#scrollToBottom()
   }
@@ -45,6 +48,6 @@ export default class extends Controller {
   }
 
   #scrollToBottom() {
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    this.messagesTarget.scrollIntoView({ behavior: 'smooth', block: 'end'});
   }
 }

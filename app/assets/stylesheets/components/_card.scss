@@ -1,25 +1,45 @@
+.card-container {
+  background-color: #f8f8f8;
+}
+
+.description {
+  background-color: #f8f8f8;
+}
+
+.overflowy {
+  background-color: #f8f8f8;
+}
+
+.custom-wrapper {
+  background-color: #f8f8f8;
+}
+
+.container {
+  background-color: #f8f8f8;
+}
+
 .card-img-top{
   overflow: hidden;
   vertical-align: middle;
   border-radius: 5px;
-  height: 220px;
+  height: 300px;
   background-size: cover;
   object-fit: contain;
   display: flex;
   align-items: flex-end;
   padding-left: 16px;
+  border-bottom-right-radius: 130px;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 5px;
+  border: none;
   a {
     text-decoration: none;
   }
 }
 
-.card {
-  padding: 16px;
-  border-radius: 15px;
-  &.active {
-    border: solid 2px #FF5A60;
-  }
-}
 
 .cards {
   display: grid;
@@ -30,37 +50,29 @@
   margin-right: 50px;
 }
 
+.card-match {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20%;
+  padding-left: 20%;
+}
+
 .card-body {
   display: flex;
   justify-content: space-between;
 }
 
-.title-container {
-  margin-top: 50px;
-  margin-left: 50px;
-}
-
-.card-title {
-  color: rgb(251, 239, 239);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+.card-body a h5 {
+  color: rgb(42, 42, 42);
   font-weight: bold;
   text-decoration: none;
 }
 
-h5:hover {
-  color: #FF5A60;
+.card-body a h5:hover {
+  color: #505050;
   text-decoration: none;
 }
 
-.card-text{
-  text-overflow:ellipsis;
-  overflow:hidden;
-  // Addition lines for 2 line or multiline ellipsis
-  display: -webkit-box !important;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-}
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

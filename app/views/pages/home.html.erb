@@ -1,25 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-  <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
+<%# <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
 
   <div class="different-homes">
+    <%#= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
 
-    <% if current_user.nil?%>
-      <%= render "pages/signup_home" %>
-    <%# elsif current_user.current_track? %>
-      <%= render "pages/matches_home" %>
-    <% elsif current_user.preference.present? %>
-      <%= render "pages/no_matches_home" %>
-      <%= render "pages/matches_home" %>
-    <% elsif current_user.preference.present? %>
-      <%= render "pages/no_matches_home" %>
-
-    <% else %>
-      <%= render "signup_home" %>
-    <% end %>
+    <%# if current_user.nil?%>
+      <%#= render "pages/signup_home" %>
+    <%# elsif current_user.spotify_id.nil? == false %>
+      <%# if current_user.currently_playing? %>
+        <%= render "pages/matches_home" %>
+      <%# end %>
+    <%# else %>
+      <%#= render "pages/no_matches_home" %>
+    <%# end %>
   </div>
-
-  <% console %>
-
-  <%= render "matches_home", users: @users %>
+<%console%>

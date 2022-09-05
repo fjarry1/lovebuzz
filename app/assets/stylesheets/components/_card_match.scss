@@ -1,0 +1,35 @@
+.card-match-list {
+  overflow: hidden;
+  height: 68px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $gris;
+  border-radius: 0px 0px 20px 0px;
+}
+
+.card-match-list img {
+  width: 56px;
+  height: 56px;
+  border-radius: 20%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.card-match-list h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-match-list p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-match-list .card-match-list-infos {
+  padding: 16px;
+}
