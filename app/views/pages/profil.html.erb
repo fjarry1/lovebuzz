@@ -21,8 +21,22 @@
   </button>
 </div>
 <div class="description">
+
   <h3 class="my-3">Who am I?<h3>
     <p class="fs-6"><%=@user.description%></p>
   <h3 class="my-3">Music Tastes<h3>
     <p class="fs-6"><%=@user.music_tastes%></p>
+
+  </div>
+  <div class="card-match mb-5">
+    <div><%= link_to(no_match_path(@user.id), method: :post) do%>
+              <i class="fa-solid fa-circle-xmark" style="color: #D61C4E; font-size: 45px;"></i>
+            <% end %>
+      </div>
+      <div ><%= link_to(new_match_or_match_favorable_path(@user.id), method: :post) do%>
+              <i class="fa-solid fa-circle-check" style="color: #D61C4E; font-size: 45px;"></i>
+            <% end %>
+      </div>
+    </div>
+  </div>
 </div>
