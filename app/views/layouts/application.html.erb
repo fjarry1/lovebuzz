@@ -22,9 +22,12 @@
           <%= render "shared/footer" %>
         <% end %>
 
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    
         <%= render "shared/flashes" %>
             <% unless (action_name == "connexion" && controller_name == "pages") %>
         </div>
       <% end %>
+
   </body>
 </html>
