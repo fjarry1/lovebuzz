@@ -6,7 +6,7 @@ const application = Application.start()
 application.debug = false
 window.Stimulus   = application
 
-// var Spotify = require('spotify-web-api-js');
-// var s = new Spotify();
+var Spotify = require('spotify-web-api-js');
+var s = new Spotify();
 
 export { application }
