@@ -11,7 +11,9 @@
   </head>
     <body data-controller="geocode" style="<%= 'overflow:hidden' if @hide_overflow%>">
       <%= render "shared/navbar" unless (action_name == "connexion" && controller_name == "pages")%>
-      <div class="official-bg">
+      <% unless (action_name == "connexion" && controller_name == "pages") %>
+        <div class="official-bg">
+      <% end %>
         <div class="<%= action_name == "show" && controller_name == "matches" ? "custom-wrapper-for-chat" : "custom-wrapper-for-all" %>" >
           <%= yield %>
         </div>
@@ -21,6 +23,8 @@
         <% end %>
 
         <%= render "shared/flashes" %>
-      </div>
+            <% unless (action_name == "connexion" && controller_name == "pages") %>
+        </div>
+      <% end %>
   </body>
 </html>
