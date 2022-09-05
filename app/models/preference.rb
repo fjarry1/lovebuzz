@@ -4,6 +4,6 @@ class Preference < ApplicationRecord
   validate :age_gap?
 
   def age_gap?
-    errors.add(:max_age, "The upper age limit can't be lower than the min age limit") unless :max_age >= :min_age
+    errors.add(:max_age, "The upper age limit can't be lower than the lower age limit") if max_age < min_age
   end
 end
