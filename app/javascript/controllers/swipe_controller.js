@@ -5,6 +5,8 @@ export default class extends Controller {
   static targets = [ "card", "nopeBtn", "likeBtn" ]
 
   connect() {
+    this.csrf = document.querySelector("[name='csrf-token']").content
+
     this._initCards();
     this._initSwipe();
 
@@ -23,13 +25,26 @@ export default class extends Controller {
   liked(elementId) {
     document.dispatchEvent(this.likeEvent);
     console.log(`liked id ${elementId}`)
-    // TODO your code when liked
+
+    const options = {
+      method: "POST",
+      headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf },
+    }
+
+    fetch(`/matches?user_id=${elementId}`, options)
+
   }
 
   disliked(elementId) {
     document.dispatchEvent(this.dislikeEvent);
     console.log(`disliked id ${elementId}`)
-    // TODO your code when disliked
+
+    const options = {
+      method: "POST",
+      headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf },
+    }
+
+    fetch(`/matches?user_id=${elementId}`, options)
   }
 
   _initCards(card, index) {

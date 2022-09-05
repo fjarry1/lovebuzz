@@ -36,9 +36,11 @@
   background-color: white;
   display: flex;
   height: 53px;
-  width: 100%;
+  width: 90%;
+  margin-left: 20px;
+  border-radius: 8px;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   position: fixed;
   bottom: 96px;
 }

@@ -1,11 +1,12 @@
 .card-match-list {
   overflow: hidden;
   height: 68px;
-  background: white;
+  background: $beige;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $gris;
-  border-radius: 0px 0px 20px 0px;
+  border-bottom: 2px solid $rouge;
+  border-radius: 5px 5px 20px 5px;
+  padding-left: 5px;
 }
 
 .card-match-list img {
