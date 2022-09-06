@@ -31,7 +31,7 @@
       margin: 0;
       padding: 8px 16px;
       border-radius: 8px;
-      background-color: $jaune;
+      background-color: $jaune; // match
     }
   }
 }
@@ -71,7 +71,7 @@
   .message-content {
     flex-direction: row-reverse;
     p {
-      background-color: $rouge;
+      background-color: $rouge; // moi
     }
   }
 }
