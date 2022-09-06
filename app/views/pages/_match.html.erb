@@ -1,0 +1,15 @@
+<div class="modal-custom fade-in">
+  <div class="home-background">
+    <div class="container">
+      <div id="avatar-match">
+        <%= cl_image_tag user.photos.first.key %>
+      </div>
+      <h1>It's a match!</h1>
+          <%= link_to match_path(match), class: "btn-grad" do %>
+          <h5 style="color: white;">Send a message</h5>
+          <% end %>
+        <h5 style="color: white;" data-action="click->swipe#closeModal">Continue swiping</h1>
+      </div>
+    </div>
+  </div>
+</div>

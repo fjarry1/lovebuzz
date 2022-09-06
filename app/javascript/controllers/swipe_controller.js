@@ -3,7 +3,7 @@ import Hammer from 'hammerjs'
 import Swal from 'sweetalert2'
 
 export default class extends Controller {
-  static targets = [ "card", "nopeBtn", "likeBtn" ]
+  static targets = [ "card", "nopeBtn", "likeBtn", "modalContainer" ]
 
   connect() {
     this.csrf = document.querySelector("[name='csrf-token']").content
@@ -36,12 +36,13 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.match){
-          Swal.fire({
+            this.modalContainerTarget.innerHTML = data.modal_html
+/*           Swal.fire({
             icon: 'success',
             title: 'It\'s a match! 🍆💦🍑',
             text: `You were listening ${data.track_name} - ${data.artist_name} at the same time with ${data.username}`,
             footer: '<a href="">Keep swiping or chat?</a>'
-          })
+          }) */
         }
         // this._noCardsLeft()
       })
@@ -163,5 +164,14 @@ export default class extends Controller {
 
   _activeCards() {
     return this.cardTargets.filter(e => !e.classList.contains('removed'));
+  }
+
+  closeModal() {
+    console.log('close modal frere')
+    const modal = this.modalContainerTarget.firstElementChild
+    modal.classList.add('fade-out')
+    setTimeout(() => {
+      modal.remove()
+    }, 350);
   }
 }

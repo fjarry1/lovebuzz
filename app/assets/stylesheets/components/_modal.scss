@@ -1,0 +1,16 @@
+.modal-custom {
+  position: fixed;
+  z-index: 99999999;
+  inset: 0;
+  height: 100vh;
+}
+
+#avatar-match {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: white 2px solid;
+  background-size: cover;
+  object-fit: contain;
+  display: flex;
+}

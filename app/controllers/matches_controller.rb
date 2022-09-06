@@ -37,6 +37,7 @@ class MatchesController < ApplicationController
       format.html { redirect_to home_path }
       format.json do
         render json: {
+          modal_html: render_to_string(partial: "pages/match", locals: { user: @user_2, match: @match }, formats: :html),
           match: @match.status == "Favorable",
           username: @user_2.full_name,
           track_name: @title,
