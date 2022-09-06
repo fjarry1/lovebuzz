@@ -34,3 +34,10 @@
 .card-match-list .card-match-list-infos {
   padding: 16px;
 }
+
+.titre-conv {
+  background: linear-gradient(to right, $jaune 0%, $orange 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
