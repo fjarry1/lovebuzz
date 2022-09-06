@@ -18,3 +18,6 @@ application.register("match-subscription", MatchSubscriptionController)
 
 import SwipeController from "./swipe_controller"
 application.register("swipe", SwipeController)
+
+import PlayerController from "./player_controller"
+application.register("player", PlayerController)
