@@ -1,45 +1,24 @@
-// import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus"
 
-// export default class extends Controller {
-//   static targets = [ "playerSongName", "playerArtist", 'playerCoverImg']
-//   static values = { token: String, songId: String }
+export default class extends Controller {
+  static targets = [ "title", "artist", "artwork"]
 
-//   connect() {
-//     window.onSpotifyWebPlaybackSDKReady = () => {
-//       const token = this.tokenValue;
-//       this.player = new Spotify.Player({
-//         name: 'lovebuzz',
-//         getOAuthToken: cb => { cb(token); },
-//         volume: 0.5
-//       });
-//       if (window.localStorage.cover) {
-//         this.playerCoverImgTarget.src = window.localStorage.cover
-//         this.playerSongNameTarget.innerHTML = '<h2>' + window.localStorage.title + '</h2>'
-//         this.playerArtistTarget.innerText = window.localStorage.artist
-//       } else {
-//         this.playerCoverImgTarget.src = ""
-//         this.playerSongNameTarget.innerText = ""
-//         this.playerArtistTarget.innerText = ""
-//       }
+  connect() {
+      // setInterval(() => {
+        const options = {
+          method: "GET",
+          headers: {
+            "Authorization": "Bearer BQDJojKiuek-2zm5RQ0d3ZMK_iwOf8u4bJFVZW2zdacghMWydPG8v75_sIUSglWvYhShRBo-CdxfAx6HezC7Oej7eXzEE3U_DmuU6xAOMSpZAH1TF7tJicMMRnkCw8xnt-ni8qIeWiXWyi7MojsOxPVIbIcL7NZqZNnMA4biMFGAE89vXw" },
+          }
 
-//         // Ready
-//         this.player.addListener('ready', ({ device_id }) => {
-//         console.log('Ready with Device ID', device_id);
-//         this.id = device_id
-//       });
-
-//       player.getCurrentState().then(state => {
-//         if (!state) {
-//           console.error('User is not playing music through the Web Playback SDK');
-//           return;
-//         }
-
-//         var current_track = state.track_window.current_track;
-//         var next_track = state.track_window.next_tracks[0];
-
-//         console.log('Currently Playing', current_track);
-//         console.log('Playing Next', next_track);
-//       });
-//     }
-//   }
-// }
+          fetch('https://api.spotify.com/v1/me/player/currently-playing', options)
+            .then(response => response.json())
+            .then((data) => {
+              console.log(data)
+              this.titleTarget.innerText = data.item.name
+              this.artistTarget.innerText = data.item.artists[0].name
+              this.artworkTarget
+          })
+     // }, 1500);
+    }
+  }
