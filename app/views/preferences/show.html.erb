@@ -1,20 +1,21 @@
-<div class="mx-auto" style="width: 80%;">
-  <h2 class="my-3">Your match preferences</h2>
-  <div>
-    <% if @preference.nil? %>
-      <p> You haven't set any match preference yet </p>
-      <%= link_to "Set my preferences", new_user_preference_path(current_user)%>
-    <% else %>
-      <h3>Max Age</h3>
-      <p class="mb-3 mt-2"><%= @preference.max_age%></p>
-      <h3>Min Age</h3>
-      <p class="mb-3 mt-2"><%= @preference.min_age%></p>
-      <h3>Max Distance</h3>
-      <p class="mb-3 mt-2"><%= @preference.max_distance%> Km</p>
-      <h3>Gender</h3>
-      <p class="mb-3 mt-2"><%= @preference.gender%></p>
-      <h3></h3>
-      <%= link_to "Edit my match preferences", edit_user_preference_path(current_user, current_user.preference), class:"btn border-success"%>
-    <% end %>
+<div class="mx-auto" style="width: 80%; color:white">
+<div class="container">
+    <h2 class="my-3">Your match preferences</h2>
+    <div>
+      <% if @preference.nil? %>
+        <p> You haven't set any match preference yet </p>
+        <%= link_to "Set my preferences", new_user_preference_path(current_user), class:"button"%>
+      <% else %>
+        <h3>Max Age</h3>
+        <p class="mb-3 mt-2"><%= @preference.max_age%></p>
+        <h3>Min Age</h3>
+        <p class="mb-3 mt-2"><%= @preference.min_age%></p>
+        <h3>Max Distance</h3>
+        <p class="mb-3 mt-2"><%= @preference.max_distance%> Km</p>
+        <h3>Gender</h3>
+        <p class="mb-3 mt-2"><%= @preference.gender%></p>
+          <%= link_to "Edit my match preferences", edit_user_preference_path(current_user, current_user.preference), class:"button"%>
+      <% end %>
+    </div>
   </div>
 </div>
