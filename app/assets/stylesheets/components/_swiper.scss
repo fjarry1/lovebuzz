@@ -70,38 +70,57 @@ $card-height: 51vh;
 }
 
 .tinder--card {
-  display: inline-block;
+  display: flex;
   width: 80vw;
   max-width: 400px;
   height: $card-height;
-  background: #FFFFFF;
-  padding-bottom: 40px;
-  border-radius: 5px;
+  border-radius: 18px;
   overflow: hidden;
   position: absolute;
   will-change: transform;
   transition: all 0.3s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  justify-content: end;
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
 
-  img {
+  .match-infos {
+    padding: 1rem;
+    text-align: left;
+    background-blend-mode: screen;
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 35%, rgba(0,212,255,0) 100%);
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 300;
+    pointer-events: none;
+    h3 {
+      margin-bottom: 0;
+    }
+    p {
+      pointer-events: none;
+      margin-bottom: 0;
+    }
+  }
+/*   img {
     max-width: 100%;
     pointer-events: none;
-  }
+  } */
 
-  h3 {
+/*   h3 {
     margin-top: 32px;
     font-size: 32px;
     padding: 0 16px;
     pointer-events: none;
-  }
-  p {
+  } */
+/*   p {
     margin-top: 24px;
     font-size: 20px;
     padding: 0 16px;
     pointer-events: none;
-  }
+  } */
 }
 
 .moving.tinder--card {
@@ -147,10 +166,10 @@ $card-height: 51vh;
   color: #CDD6DD;
 }
 
-.tinder--card img {
+/* .tinder--card img {
   object-fit: cover;
   aspect-ratio: 1/1;
   width: 100%;
   pointer-events: none;
   border-bottom-right-radius: 130px;
-}
+} */
