@@ -74,6 +74,13 @@
   overflow: scroll;
 }
 
+.titre-match {
+  background: linear-gradient(to right, $jaune 0%, $orange 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
+
 
   // This is what displays the message on the right
 .message.sender {
@@ -87,4 +94,7 @@
       color: black;
     }
   }
+
+
+
 }

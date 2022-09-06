@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center pt-3">
   <% @match.user_1 == current_user ? profil = @match.user_2 : profil = @match.user_1 %>
   <%= link_to profil_path(profil) do %>
-    <h1 class="mb-3"  style="font-size:30px"><%= @match.interlocutor_of(current_user).full_name %></h1>
+    <h1 class="titre-match mb-3"><%= @match.interlocutor_of(current_user).full_name %></h1>
   <% end %>
 </div>
 
