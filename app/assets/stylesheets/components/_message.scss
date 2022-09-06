@@ -3,6 +3,13 @@
   overflow: hidden;
 }
 
+.nom {
+  font-size: 30px;
+  background: linear-gradient(to right, $jaune 0%, $orange 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
 .message {
   margin-bottom: 8px;
   .message-infos {
@@ -10,9 +17,9 @@
     align-items: center;
     margin: 0 4px;
     font-size: 0.75rem;
-    color: rgb(200, 200, 200);
     p {
       margin: 0;
+      color: black;
     }
   }
   .message-avatar {
@@ -31,22 +38,27 @@
       margin: 0;
       padding: 8px 16px;
       border-radius: 8px;
-      background-color: $jaune; // match
+      background: linear-gradient(45deg, $jaune 0%, $orange 100%);
     }
   }
 }
 
 .send-button {
-  background-color: $jaune;
   border: none;
   border-radius: 0px 8px 8px 0px;
-  color: white;
   padding: 0px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  background: linear-gradient(45deg, #DF04B5 0%, $rouge 100%);
+  color: black;
 }
+
+.input-group {
+  position: fixed;
+}
+
 
  .form-control {
   border-radius: 8px 0px 0px 8px;
@@ -58,8 +70,8 @@
  }
 
 .card-chat {
-  height: 645px;
-  overflow-y: scroll;
+  height: 629px;
+  overflow: scroll;
 }
 
 
@@ -71,7 +83,8 @@
   .message-content {
     flex-direction: row-reverse;
     p {
-      background-color: $rouge; // moi
+      background: linear-gradient(45deg, #DF04B5 0%, $rouge 100%);
+      color: black;
     }
   }
 }

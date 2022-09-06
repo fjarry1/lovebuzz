@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-center pt-3">
-  <h1>My Matches</h1>
+<div class="d-flex justify-content-start ps-3 pt-3 pb-4">
+  <h1 style="font-size:42px">Conversations</h1>
 </div>
 
   <div class="container">
@@ -12,9 +12,9 @@
             <% else %>
               <%= cl_image_tag match.user_1.photos.first.key %>
             <% end %>
-            <div class="card-match-list-infos">
+            <div class="card-match-list-infos" style="color:black; font-weight:bolder">
               <%= match.interlocutor_of(current_user).full_name %>
-              <p><%= match.messages.last&.content&.truncate(50) %></p>
+              <p style="color:$gris"><%= match.messages.last&.content&.truncate(40) %></p>
             </div>
           </div>
         <% end %>
