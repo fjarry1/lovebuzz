@@ -8,7 +8,11 @@
       <% @matches.each do |match| %>
         <%= link_to match_path(match) do %>
           <div class="card-match-list mb-2">
-            <%= cl_image_tag match.user_2.photos.first.key %>
+            <% if match.user_1 == current_user %>
+              <%= cl_image_tag match.user_2.photos.first.key %>
+            <% else %>
+              <%= cl_image_tag match.user_1.photos.first.key %>
+            <% end %>
             <div class="card-match-list-infos">
               <%= match.interlocutor_of(current_user).full_name %>
               <p><%= match.messages.last&.content&.truncate(50) %></p>

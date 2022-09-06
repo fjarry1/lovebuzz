@@ -22,9 +22,9 @@ user_jebg = User.create!(email: "Jean-Eudes.BG@gmail.com",
              first_name: "Jean-Eudes",
              last_name: "BG",
              birthdate: age,
-             description: "Hi Biloute, I'm Jean-Eude BG, the BG of 16 villa gaudelet 17. I'm #{DateTime.now.year - age.year} years old. My typical afternoon is Ricard in front of Sardou. In life I don't like debates: there's no need to wiggle your ass to shit straight.",
+             description: "Hi Biloute, I'm Jean-Eude BG, the BG of Paris 17. I'm #{DateTime.now.year - age.year} years old. My typical afternoon is Ricard in front of Sardou. In life I don't like debates: there's no need to wiggle your ass to shit straight.",
              gender: "M",
-             address: "16 villa gaudelet",
+             address: "31 Rue de Saintonge, 75003 Paris",
              music_tastes: "Disco, Funk, Soul")
 
 file = URI.open("https://source.unsplash.com/WNoLnJo7tS8")
@@ -40,6 +40,14 @@ user_jebg.photos.attach(io: file, filename: "avatar5-0.png", content_type: "imag
 user_jebg.save!
 
 puts "adding preference to Jeau-Eudes"
+
+Preference.create!(
+  user_id: user_jebg.id,
+  min_age: 18,
+  max_age: 99,
+  max_distance: 10,
+  gender: "M"
+)
 
 puts "creating Michel-Du-75@gmail.com and azerty login"
 age = DateTime.now - 43.years
@@ -65,89 +73,143 @@ file = URI.open("https://source.unsplash.com/KLLcTHE20bI")
 user_mich.photos.attach(io: file, filename: "avatar5-0.png", content_type: "image/png")
 user_mich.save!
 
-puts "creating user n°1"
-first_name = Faker::Name.first_name
-last_name = Faker::Name.last_name
-age = DateTime.now - (19..90).to_a.sample.years
-puts "#{first_name}.#{last_name}@gmail.com"
-user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
-                    password: "azerty",
-                    first_name: first_name,
-                    last_name: last_name,
-                    birthdate: age,
-                    description: "Hello ! Fan of techno festivals, parties of all kinds and bar pillar, I would need someone to come with me to my sister's wedding. Maybe it will be you!",
-                    gender: ["M","F","Other"].sample,
-                    address: "16 villa gaudelet",
-                    music_tastes: "Electro, Techno, New wave")
-(2..7).to_a.sample.times do
-  puts "photo"
-  file = URI.open("https://source.unsplash.com/random/?profile")
-  user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
-end
-user.save!
+puts "creating Mich preferences"
 
-puts "creating user n°2"
-first_name = Faker::Name.first_name
-last_name = Faker::Name.last_name
-age = DateTime.now - (19..90).to_a.sample.years
-puts "#{first_name}.#{last_name}@gmail.com"
-user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
-                    password: "azerty",
-                    first_name: first_name,
-                    last_name: last_name,
-                    birthdate: age,
-                    description: "Hey you, I'm looking to get out of this app as soon as possible. I would like someone to travel with and who likes to cook because I can't do anything with my 10 fingers.",
-                    gender: ["M","F","Other"].sample,
-                    address: "16 villa gaudelet",
-                    music_tastes: "Rock, Karaoke, Metal")
-(2..7).to_a.sample.times do
-  puts "photo"
-  file = URI.open("https://source.unsplash.com/random/?profile")
-  user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
-end
-user.save!
+Preference.create!(
+  user_id: user_mich.id,
+  min_age: 18,
+  max_age: 99,
+  max_distance: 10,
+  gender: "M"
+)
 
-puts "creating user n°3"
-first_name = Faker::Name.first_name
-last_name = Faker::Name.last_name
-age = DateTime.now - (19..90).to_a.sample.years
-puts "#{first_name}.#{last_name}@gmail.com"
-user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
-                    password: "azerty",
-                    first_name: first_name,
-                    last_name: last_name,
-                    birthdate: age,
-                    description: "Hello you, I don't like descriptions. Let's have a drink instead! (at my home or yours ?) which alcool would you prefer?",
-                    gender: ["M","F","Other"].sample,
-                    address: "16 villa gaudelet",
-                    music_tastes: "Techno, Trans, Hardcore")
-(2..7).to_a.sample.times do
-  puts "photo"
-  file = URI.open("https://source.unsplash.com/random/?profile")
-  user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
-end
-user.save!
+puts "Jean-eudes like Mich"
 
-puts "creating user n°4"
-first_name = Faker::Name.first_name
-last_name = Faker::Name.last_name
-age = DateTime.now - (19..90).to_a.sample.years
-puts "#{first_name}.#{last_name}@gmail.com"
-user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
-                    password: "azerty",
-                    first_name: first_name,
-                    last_name: last_name,
-                    birthdate: age,
-                    description: "Hi, I'm #{first_name} #{last_name}, I'm #{DateTime.now.year - age.year}. I like fooding, traveling, and humor! No one shot please... I want to marry and have kids.",
-                    gender: ["M","F","Other"].sample,
-                    address: "Tour Eiffel",
-                    music_tastes: "I love everything!",
-                    latitude: 48.855782,
-                    longitude: 2.293629)
-(2..7).to_a.sample.times do
-  puts "photo"
-  file = URI.open("https://source.unsplash.com/random/?profile")
-  user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
+Match.create!(
+  user_1_id: user_mich.id,
+  user_2_id: user_jebg.id,
+  track_id: "1",
+  status: "Pending"
+)
+
+counter = 1
+full_name = []
+keep = true
+
+20.times do
+  puts "creating user n°#{counter}"
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  while keep
+    if full_name.include?("#{first_name} #{last_name}")
+      first_name = Faker::Name.first_name
+      last_name = Faker::Name.last_name
+    else
+      full_name.append("#{first_name} #{last_name}")
+      keep = false
+    end
+  end
+  age = DateTime.now - (19..40).to_a.sample.years
+  puts "#{first_name}.#{last_name}@gmail.com"
+  user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
+                      password: "azerty",
+                      first_name: first_name,
+                      last_name: last_name,
+                      birthdate: age,
+                      description: "Hello ! Fan of techno festivals, parties of all kinds and bar pillar, I would need someone to come with me to my sister's wedding. Maybe it will be you!",
+                      gender: "M",
+                      address: "Paris #{counter}",
+                      music_tastes: "Electro, Techno, New wave")
+  puts "Adding Photos"
+  (2..4).to_a.sample.times do
+    file = URI.open("https://source.unsplash.com/random/?profile")
+    user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
+  end
+  user.save!
+  if counter.even?
+    puts "Adding Match"
+    match = Match.create!(
+      user_1_id: user.id,
+      user_2_id: user_mich.id,
+      track_id: "1",
+      status: "Pending"
+    )
+    if [2,6,10,20].include?(counter)
+      match.status = "Favorable"
+      puts "adding message"
+      Message.create!(
+        match_id: match.id,
+        user_id: user.id,
+        content: "Hello 👋 How are you ? I can see we have the same music taste :)"
+      )
+    end
+  end
+  counter += 1
+  keep = true
 end
-user.save!
+
+# puts "creating user n°2"
+# first_name = Faker::Name.first_name
+# last_name = Faker::Name.last_name
+# age = DateTime.now - (19..90).to_a.sample.years
+# puts "#{first_name}.#{last_name}@gmail.com"
+# user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
+#                     password: "azerty",
+#                     first_name: first_name,
+#                     last_name: last_name,
+#                     birthdate: age,
+#                     description: "Hey you, I'm looking to get out of this app as soon as possible. I would like someone to travel with and who likes to cook because I can't do anything with my 10 fingers.",
+#                     gender: ["M","F","Other"].sample,
+#                     address: "16 villa gaudelet",
+#                     music_tastes: "Rock, Karaoke, Metal")
+# (2..7).to_a.sample.times do
+#   puts "photo"
+#   file = URI.open("https://source.unsplash.com/random/?profile")
+#   user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
+# end
+# user.save!
+
+# puts "creating user n°3"
+# first_name = Faker::Name.first_name
+# last_name = Faker::Name.last_name
+# age = DateTime.now - (19..90).to_a.sample.years
+# puts "#{first_name}.#{last_name}@gmail.com"
+# user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
+#                     password: "azerty",
+#                     first_name: first_name,
+#                     last_name: last_name,
+#                     birthdate: age,
+#                     description: "Hello you, I don't like descriptions. Let's have a drink instead! (at my home or yours ?) which alcool would you prefer?",
+#                     gender: ["M","F","Other"].sample,
+#                     address: "16 villa gaudelet",
+#                     music_tastes: "Techno, Trans, Hardcore")
+# (2..7).to_a.sample.times do
+#   puts "photo"
+#   file = URI.open("https://source.unsplash.com/random/?profile")
+#   user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
+# end
+# user.save!
+
+# puts "creating user n°4"
+# first_name = Faker::Name.first_name
+# last_name = Faker::Name.last_name
+# age = DateTime.now - (19..90).to_a.sample.years
+# puts "#{first_name}.#{last_name}@gmail.com"
+# user = User.create!(email: "#{first_name}.#{last_name}@gmail.com",
+#                     password: "azerty",
+#                     first_name: first_name,
+#                     last_name: last_name,
+#                     birthdate: age,
+#                     description: "Hi, I'm #{first_name} #{last_name}, I'm #{DateTime.now.year - age.year}. I like fooding, traveling, and humor! No one shot please... I want to marry and have kids.",
+#                     gender: ["M","F","Other"].sample,
+#                     address: "Tour Eiffel",
+#                     music_tastes: "I love everything!",
+#                     latitude: 48.855782,
+#                     longitude: 2.293629)
+# (2..7).to_a.sample.times do
+#   puts "photo"
+#   file = URI.open("https://source.unsplash.com/random/?profile")
+#   user.photos.attach(io: file, filename: "avatar.png", content_type: "image/png")
+# end
+# user.save!
 puts "Database ready"
