@@ -1,0 +1,52 @@
+.modal-custom {
+  position: fixed;
+  z-index: 99999999;
+  inset: 0;
+  height: 100vh;
+}
+
+.avatar-match {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: white 3px solid;
+  object-fit: cover;
+}
+
+.profil-container {
+  margin-bottom: 50px;
+}
+
+.profil-container a {
+  text-align: center;
+}
+
+.match-container {
+  margin-bottom: 50px;
+}
+
+.continue-box {
+  margin-top: 30px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.box p {
+  font-family:'Montserrat';
+  font-weight: lighter;
+  font-size: 25px;
+  color: white;
+}
+
+.box h1 {
+  font-family:'Montserrat';
+  font-weight: bolder;
+  font-size: 40px;
+  color: white;
+}

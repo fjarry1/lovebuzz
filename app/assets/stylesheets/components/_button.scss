@@ -1,0 +1,56 @@
+.button {
+  background-color: $jaune;
+  border: none;
+  border-radius: 6px 6px 6px 6px;
+  color: white;
+  padding: 0px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover{
+  background-color: $rouge;
+  border: none;
+  border-radius: 6px 6px 6px 6px;
+  color: white;
+  padding: 0px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:active{
+  background-color: $rouge;
+  border: none;
+  border-radius: 6px 6px 6px 6px;
+  color: white;
+  padding: 0px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+.btn-grad {
+  padding-top: 10px;
+  width: 280px;
+  background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%);
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 33px;
+  display: block;
+  border: white 2px solid;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  border: white 2px solid;
+}

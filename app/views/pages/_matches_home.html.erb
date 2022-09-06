@@ -12,31 +12,11 @@
     <% if current_user.preference %>
       <% preference = current_user.preference %>
       <% User.near([current_user.latitude, current_user.longitude], preference.max_distance).to_a.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.select{ |u| u if u.age >= preference.min_age && u.age <= preference.max_age && u.gender == preference.gender}.each do |user|  %>
-        <div class="tinder--card" data-swipe-target="card" data-id="<%= user.id %>">
-          <div class="tinder--status">
-            <i class="fa-solid fa-xmark"></i>
-            <i class="fa fa-heart"></i>
-          </div>
-          <%= cl_image_tag user.photos.first.key %>
-          <%= link_to profil_path(user) do %>
-            <h3><%= user.first_name %> <%= user.last_name %></h3>
-            <h4><%= user.age %> years old</h4>
-          <% end %>
-        </div>
+        <%= render 'matching_card', user: user %>
       <% end %>
     <% else %>
       <% @users.to_a.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.each do |user| %>
-        <div class="tinder--card" data-swipe-target="card" data-id="<%= user.id %>">
-          <div class="tinder--status">
-            <i class="fa-solid fa-xmark"></i>
-            <i class="fa fa-heart"></i>
-          </div>
-          <%= cl_image_tag user.photos.first.key %>
-          <%= link_to profil_path(user) do %>
-            <h3><%= user.first_name %> <%= user.last_name %></h3>
-            <h4><%= user.age %> years old</h4>
-          <% end %>
-        </div>
+        <%= render 'matching_card', user: user %>
       <% end %>
     <% end %>
   </div>
@@ -49,5 +29,5 @@
       <i class="fa fa-heart"></i>
     </button>
   </div>
-
+  <div data-swipe-target="modalContainer"></div>
 </div>

@@ -6,3 +6,9 @@
 .description {
   padding: 5%;
 }
+
+.boite {
+  height: calc(100vh - 96px - 96px);
+  margin-bottom: 96px;
+  overflow: scroll;
+}
