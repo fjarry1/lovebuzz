@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <%= favicon_link_tag %>
   </head>
     <body data-controller="geocode" style="<%= 'overflow:hidden' if @hide_overflow%>">
       <%= render "shared/navbar" unless (action_name == "connexion" && controller_name == "pages")%>
@@ -23,7 +25,7 @@
         <% end %>
 
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    
+
         <%= render "shared/flashes" %>
             <% unless (action_name == "connexion" && controller_name == "pages") %>
         </div>
