@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = [ "title", "artist", "artwork"]
 
   connect() {
-      setInterval(() => {
+      // setInterval(() => {
         const options = {
           method: "GET",
           headers: {
@@ -19,6 +19,6 @@ export default class extends Controller {
               this.artistTarget.innerText = data.item.artists[0].name
               this.artworkTarget
           })
-     }, 5000);
+    //  }, 5000);
     }
   }
