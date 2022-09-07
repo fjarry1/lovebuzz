@@ -53,6 +53,13 @@
   text-decoration: none;
 }
 
+.fa.fa-heart {
+  background: linear-gradient(to right, $jaune 0%, $orange 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
+
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

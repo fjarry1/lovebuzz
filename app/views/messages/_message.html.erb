@@ -1,6 +1,10 @@
 <% sender = message.user == current_user %>
 
-<div class="message <%= 'sender' if sender %>">
+<% if sender %>
+<div class="message sender">
+<% else %>
+<div class="message" style="margin-right: 44px;">
+<% end %>
   <div class="message-content">
     <%= link_to profil_path(message.user) do%>
       <%= image_tag cl_image_path(message.user.photos.first.key), alt: "#{message.user.full_name}'s avatar", class: 'message-avatar' %>
@@ -8,6 +12,6 @@
     <p><%= message.content %></p>
   </div>
   <div class="message-infos">
-    <p><span><%= sender ? 'You' : message.user.full_name %></span> at <%= message.created_at.strftime("%H:%M") %></p>
+    <p><span><%= sender ? 'You' : message.user.full_name %></span> at <%= (message.created_at + 2.hour).strftime("%H:%M") %></p>
   </div>
 </div>
