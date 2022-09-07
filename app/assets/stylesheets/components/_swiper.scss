@@ -59,6 +59,7 @@ $card-height: 51vh;
 }
 
 .tinder--cards {
+  overflow: hidden;
   height: $card-height;
   margin-top: 50px;
   flex-grow: 1;
@@ -70,10 +71,11 @@ $card-height: 51vh;
 }
 
 .tinder--card {
+  margin-top: 12%;
   display: flex;
   width: 80vw;
   max-width: 400px;
-  height: $card-height;
+  height: 57vh;
   border-radius: 18px;
   overflow: hidden;
   position: absolute;
@@ -131,7 +133,7 @@ $card-height: 51vh;
 .tinder--buttons {
   flex: 0.7 0 0px;
   text-align: center;
-  padding-top: 17px;
+  padding-top: 60px;
 
   i {
     font-size: 32px;
