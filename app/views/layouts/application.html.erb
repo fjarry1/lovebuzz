@@ -7,6 +7,9 @@
     <meta name="mobile-web-app-capable" content="yes">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <%= render 'shared/ios_pwa_links' %>
 
     <%# google %>
     <meta name="description" content="With 0 match to date, LoveBuzz is the world's worst dating app, but you can meet your Kurt Cobain or your Beyonce">
@@ -24,7 +27,6 @@
     <meta name="twitter:description" content="With 0 match to date, LoveBuzz is the world's worst dating app, but you can meet your Kurt Cobain or your Beyonce">
     <meta name="twitter:creator" content="@LoveBuzz">
     <meta name="twitter:image:src" content="https://res.cloudinary.com/ddat564z1/image/upload/v1662540674/facebook_j7lyuy.png">
-
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
