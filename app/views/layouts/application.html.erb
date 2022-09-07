@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= render 'shared/ios_pwa_links' %>
 
@@ -39,24 +39,22 @@
     <body data-controller="geocode" style="<%= 'overflow:hidden' if @hide_overflow%>">
       <script src="https://sdk.scdn.co/spotify-player.js" data-turbo-track="reload" defer="true" ></script>
 
-      <%= render "shared/navbar" unless (action_name == "connexion" && controller_name == "pages")%>
+      <%= render "shared/navbar" unless (action_name == "connexion" && controller_name == "pages") %>
+
       <% unless (action_name == "connexion" && controller_name == "pages") %>
         <div class="official-bg">
       <% end %>
-        <div class="<%= action_name == "show" && controller_name == "matches" ? "custom-wrapper-for-chat" : "custom-wrapper-for-all" %>" >
-          <%= yield %>
-        </div>
 
-        <% unless (action_name == "show" && controller_name == "matches") || (action_name == "connexion" && controller_name == "pages")%>
-          <%= render "shared/footer" %>
-        <% end %>
+      <div class="<%= action_name == "show" && controller_name == "matches" ? "custom-wrapper-for-chat" : "custom-wrapper-for-all" %>" >
+        <%= yield %>
+      </div>
 
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
-
-        <%= render "shared/flashes" %>
-            <% unless (action_name == "connexion" && controller_name == "pages") %>
-        </div>
+      <% unless (action_name == "show" && controller_name == "matches") || (action_name == "connexion" && controller_name == "pages") %>
+        <%= render "shared/footer" %>
       <% end %>
 
+      <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
+      <%= render "shared/flashes" %>
   </body>
 </html>
