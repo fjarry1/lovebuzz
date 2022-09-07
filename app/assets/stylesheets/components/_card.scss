@@ -60,6 +60,13 @@
   font-weight: bolder;
 }
 
+.fa-solid.fa-xmark {
+  background: linear-gradient(to right, #DF04B5 0%, $rouge 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
+
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

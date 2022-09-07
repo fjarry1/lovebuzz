@@ -6,7 +6,7 @@
 .footer {
   background: #F5F5F5;
   display: flex;
-  height: 96px;
+  height: 50px;
 }
 
 .footer-links {
@@ -19,10 +19,7 @@
 .footer-links a {
   opacity: 1;
   text-decoration: none;
-  font-size: 38px;
-}
-.footer-links a:hover {
-  font-size: 58px;
+  font-size: 25px;
 }
 
 .navbar {
@@ -32,14 +29,14 @@
 .currently-playing {
   background-color: white;
   display: flex;
-  height: 53px;
+  height: 40px;
   width: 90%;
   margin-left: 20px;
   border-radius: 8px;
   align-items: center;
   justify-content: space-evenly;
   position: fixed;
-  bottom: 115px;
+  bottom: 80px;
   border: 1px solid $jaune;
   box-shadow: 0 0 20px rgba(247, 126, 33, 1);
 }
@@ -55,4 +52,17 @@
 
 .song-title-player {
   text-align: center;
+}
+
+.menu-deroulant {
+  border: none;
+}
+
+.dropdown-menu.show {
+  transform: translate(64px, -51px) !important;
+}
+
+.dropdown-item {
+    color: $noir;
+    font-size: 18px !important;
 }
