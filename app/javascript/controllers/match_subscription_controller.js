@@ -17,7 +17,7 @@ export default class extends Controller {
     )
     this.#scrollToBottom()
 
-  }
+  };
 
   disconnect() {
     this.channel.unsubscribe()
@@ -34,6 +34,7 @@ export default class extends Controller {
     if (!sender) msgElement.classList.remove('sender')
     if (!sender) msgElement.querySelector('.message-infos span').innerText = data.user_name
     this.#insertMessage(msgElement)
+    console.log(msgElement)
     this.#scrollToBottom()
   }
 
