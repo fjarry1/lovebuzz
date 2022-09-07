@@ -1,5 +1,6 @@
 <div class="d-flex justify-content-center pt-3">
   <% @match.user_1 == current_user ? profil = @match.user_2 : profil = @match.user_1 %>
+
   <%= link_to profil_path(profil) do %>
     <h1 class="titre-match mb-3"><%= @match.interlocutor_of(current_user).full_name %></h1>
   <% end %>
@@ -8,6 +9,7 @@
   <div data-controller="match-subscription"
       data-match-subscription-match-id-value="<%= @match.id %>"
       data-match-subscription-user-id-value="<%= current_user.id %>">
+
     <div class="card-chat">
       <div class="card-chat-match match" data-match-subscription-target="messages">
         <% @match.messages.each do |message| %>
