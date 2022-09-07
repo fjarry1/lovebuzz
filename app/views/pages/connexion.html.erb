@@ -4,8 +4,14 @@
     </div>
     <div class="position-absolute bottom-20 start-50 translate-middle logo-spotify">
     <h1 class="connect-with">connect with</h1>
+    <% if user_signed_in? %>
       <%= link_to home_path do %>
         <%= image_tag "Spotify_Logo_RGB_Black.png", alt: "spotify link", class: "spotify-png"%>
       <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <%= image_tag "Spotify_Logo_RGB_Black.png", alt: "spotify link", class: "spotify-png"%>
+      <% end %>
+    <% end %>
     </div>
 </div>
