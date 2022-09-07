@@ -1,19 +1,17 @@
-<div class="mx-auto" style="width: 85%; color:white">
-  <% sender = message.user == current_user %>
 
+  <% sender = message.user == current_user %>
   <% if sender %>
-  <div class="message sender">
+    <div class="message sender mx-auto" style="width: 85%;">
   <% else %>
-  <div class="message" style="margin-right: 44px;">
+    <div class="message mx-auto" style="width: 85%;">
   <% end %>
-    <div class="message-content">
-      <%= link_to profil_path(message.user) do%>
-        <%= image_tag cl_image_path(message.user.photos.first.key), alt: "#{message.user.full_name}'s avatar", class: 'message-avatar' %>
-      <% end %>
-      <p><%= message.content %></p>
+      <div class="message-content">
+        <%= link_to profil_path(message.user) do%>
+          <%= image_tag cl_image_path(message.user.photos.first.key), alt: "#{message.user.full_name}'s avatar", class: 'message-avatar' %>
+        <% end %>
+        <p><%= message.content %></p>
+      </div>
+      <div class="message-infos">
+        <p><span><%= sender ? 'You' : message.user.full_name %></span> at <%= (message.created_at + 2.hour).strftime("%H:%M") %></p>
+      </div>
     </div>
-    <div class="message-infos">
-      <p><span><%= sender ? 'You' : message.user.full_name %></span> at <%= (message.created_at + 2.hour).strftime("%H:%M") %></p>
-    </div>
-  </div>
-  </div>
