@@ -34,7 +34,7 @@
   .message-content {
   display: flex;
     p {
-      color: white;
+      color: black;
       margin: 0;
       padding: 8px 16px;
       border-radius: 8px;
@@ -52,7 +52,7 @@
   display: inline-block;
   font-size: 16px;
   background: linear-gradient(45deg, #DF04B5 0%, $rouge 100%);
-  color: black;
+  color: white;
 }
 
 .input-group {
@@ -84,6 +84,7 @@
 
   // This is what displays the message on the right
 .message.sender {
+  margin-left: 44px;
   .message-infos {
     flex-direction: row-reverse;
   }
@@ -91,7 +92,7 @@
     flex-direction: row-reverse;
     p {
       background: linear-gradient(45deg, #DF04B5 0%, $rouge 100%);
-      color: black;
+      color: white;
     }
   }
 
