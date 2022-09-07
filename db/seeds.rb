@@ -83,11 +83,11 @@ Preference.create!(
   gender: "M"
 )
 
-puts "Jean-eudes like Mich"
+puts "jb like mich"
 
 Match.create!(
-  user_1_id: user_mich.id,
-  user_2_id: user_jebg.id,
+  user_1_id: user_jebg.id,
+  user_2_id: user_mich.id,
   track_id: "1",
   status: "Pending"
 )
