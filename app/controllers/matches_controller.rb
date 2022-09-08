@@ -30,7 +30,8 @@ class MatchesController < ApplicationController
       # redirect_to home_path
     else
       @match.status = "Favorable"
-      @match.save
+      @match.song = params[:song]
+      @match.save!
       # redirect_to matches_path, notice: "It's a Match 🎉"
     end
     respond_to do |format|

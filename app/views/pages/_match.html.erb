@@ -9,10 +9,11 @@
       </div>
       <div class="match-container">
         <h1>It's a match!</h1>
+        <p>You were listening <%= match.song.length >= 4 ? match.song : "the same song" %> at the same time!</p>
       </div>
       <div>
         <%= link_to match_path(match), class: "btn-grad" do %>
-        <h5 style="color: white;">Send a message</h5>
+          <h5 style="color: white;">Send a message</h5>
         <% end %>
       </div>
       <div class="continue-box">

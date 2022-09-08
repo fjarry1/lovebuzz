@@ -32,7 +32,7 @@ export default class extends Controller {
       headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.csrf },
     }
 
-    fetch(`/matches?user_id=${elementId}&like=true`, options)
+    fetch(`/matches?user_id=${elementId}&like=true&song=${this.currentSong()}`, options)
       .then(response => response.json())
       .then((data) => {
         if (data.match){
@@ -164,6 +164,10 @@ export default class extends Controller {
 
   _activeCards() {
     return this.cardTargets.filter(e => !e.classList.contains('removed'));
+  }
+
+  currentSong() {
+    return `${document.getElementById('song-title').innerText} - ${document.getElementById('song-artist').innerText}`
   }
 
   closeModal() {
