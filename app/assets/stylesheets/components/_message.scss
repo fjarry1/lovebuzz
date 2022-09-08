@@ -57,6 +57,7 @@
 }
 
 .input-group {
+  padding: 0 20px;
   bottom: 0;
   position: fixed;
 }
@@ -80,6 +81,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Montserrat';
+}
+
+.form-control:focus {
+  box-shadow: none;
 }
 
 
