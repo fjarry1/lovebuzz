@@ -11,10 +11,6 @@
         <%= image_tag "https://res.cloudinary.com/ddat564z1/image/upload/v1662473902/logo-refont_vyhbxi.png" %>
       <% end %>
     </div>
-    <div class="col-4 d-flex justify-content-end align-items-center"> <% if action_name == "show" && controller_name == "matches" %>
-              <%= cl_image_tag current_user.photos.first.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
