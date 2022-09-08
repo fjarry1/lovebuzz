@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "title", "artist", "artwork"]
+  static targets = [ "title", "artist" ]
 
   connect() {
       // setInterval(() => {
         const options = {
           method: "GET",
           headers: {
-            "Authorization": "Bearer BQCMLaelaKhg36Q9Ycy8tPELWKo-ywSDB1gfOWtvCpaiHpt4LZy0gpAchc8E_FkaXimI74gthdr5Ny39QdOkxBYDQhdp-fKGIYWic3wCryqPdAucKq0-6lbFtgiOKyTWtqy_HFqigRuuTT7iLH-62rao5QpV6tLb2QpAf1gF68QwrZvR-g" },
+            "Authorization": "Bearer BQB4M9Hx93FijrKPrIdf0lssww7ecf9RXR0NRs_j-78nM0QohLETTfDJyz-GWbeUcZFiPEWQN_KrIgPmRi-uPGEYaqu_sZkGVE4rG2uShmg_GxxPvNC-MneJxnS1zWp3KAeC0aQLRVT_mRElJ3oA0PjR_ooOFL8LOmmOnJBY1BB6wSlW9w" },
           }
 
           fetch('https://api.spotify.com/v1/me/player/currently-playing', options)
@@ -17,7 +17,7 @@ export default class extends Controller {
               console.log(data)
               this.titleTarget.innerText = data.item.name
               this.artistTarget.innerText = data.item.artists[0].name
-              this.artworkTarget
+              // this.artworkTarget
           })
     //  }, 5000);
     }
