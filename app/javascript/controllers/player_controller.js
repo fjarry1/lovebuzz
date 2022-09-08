@@ -8,7 +8,7 @@ export default class extends Controller {
         const options = {
           method: "GET",
           headers: {
-            "Authorization": "Bearer BQB9cHcvJErzCLSJZKCisazmWYelT_e5BsxZLmoQd8csXng13QRkjddOIWzfMxL6yyTAIT-QlYxO5dC_hBUiqc7IwQedU2rWjWBS-UX4zhN-v4Nf6uIBWk5ZYpQKpW3OOCQFqUh4l3R3LyaqVAJIGAF_P0PcSDXI55Ca5MMrAEY3SuSq1A" },
+            "Authorization": "Bearer BQCMLaelaKhg36Q9Ycy8tPELWKo-ywSDB1gfOWtvCpaiHpt4LZy0gpAchc8E_FkaXimI74gthdr5Ny39QdOkxBYDQhdp-fKGIYWic3wCryqPdAucKq0-6lbFtgiOKyTWtqy_HFqigRuuTT7iLH-62rao5QpV6tLb2QpAf1gF68QwrZvR-g" },
           }
 
           fetch('https://api.spotify.com/v1/me/player/currently-playing', options)
