@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: space-evenly;
   position: fixed;
-  bottom: 80px;
+  bottom: 70px;
   border: 1px solid $jaune;
   box-shadow: 0 0 20px rgba(247, 126, 33, 1);
 }
@@ -57,6 +57,8 @@
 
 .menu-deroulant {
   border: none;
+  padding: 0;
+  background-color: transparent;
 }
 
 .dropdown-menu.show {
