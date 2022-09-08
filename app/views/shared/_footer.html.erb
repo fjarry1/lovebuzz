@@ -15,16 +15,16 @@
   <div class="footer fixed-bottom">
     <div class="footer-links">
       <%= link_to profil_path(current_user) do %>
-       <i class="fa-solid fa-user" style="color:#50555C; opacity:0.5"></i>
+       <i class="fa-solid fa-user" style="color:#50555C;"></i>
       <% end %>
       <%# redirige vers l'index des matches %>
       <%= link_to matches_path do %>
-        <i class="fa-solid fa-envelope" style="color:#50555C; opacity:0.5"></i>
+        <i class="fa-solid fa-envelope" style="color:#50555C;"></i>
       <% end %>
       <%# redirige vers ? %>
       <div class="dropup">
         <button class="menu-deroulant" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-bars" style="font-size:25px; color:#50555C; opacity:0.5"></i>
+          <i class="fa-solid fa-bars" style="font-size:25px; color:#50555C;"></i>
         </button>
         <ul class="dropdown-menu">
           <%= link_to "My profile", profil_path(current_user), class: "dropdown-item" %>

@@ -11,12 +11,12 @@
   <div class="tinder--cards">
     <% preference = current_user.preference %>
     <%# User.near([current_user.latitude, current_user.longitude], preference.max_distance).to_a.select { |u| u unless u.id == current_user.id }.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.select{ |u| u if u.age >= preference.min_age && u.age <= preference.max_age && u.gender == preference.gender}.each do |user|  %>
-  <% User.near([current_user.latitude, current_user.longitude], preference.max_distance).to_a.select { |u| u unless u.id == current_user.id }.select{ |u| u if u.age >= preference.min_age && u.age <= preference.max_age && u.gender == preference.gender}.sort_by{ |u| u.id }.each do |user|  %>
+  <% User.near([current_user.latitude, current_user.longitude], preference.max_distance).to_a.select { |u| u unless u.id == current_user.id }.select{ |u| u if Match.where("(user_1_id = #{current_user.id} AND user_2_id = #{u.id}) OR (user_1_id = #{u.id} AND user_2_id = #{current_user.id} AND status != 'Pending')").first.nil? }.select{ |u| u if u.age >= preference.min_age && u.age <= preference.max_age && u.gender == preference.gender}.sort_by{ |u| u.id }.each do |user|  %>
       <%= render 'matching_card', user: user %>
     <% end %>
   </div>
 
-  <div class="tinder--buttons">
+  <div class="tinder--buttons pt-5">
     <button id="nope" data-swipe-target="nopeBtn">
       <i class="fa-solid fa-xmark"></i>
     </button>
