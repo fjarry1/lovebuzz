@@ -124,8 +124,8 @@ Preference.create!(
 puts "Jean-eudes like Mich"
 
 Match.create!(
-  user_1_id: user_mich.id,
-  user_2_id: user_jebg.id,
+  user_2_id: user_mich.id,
+  user_1_id: user_jebg.id,
   track_id: "1"
 )
 
