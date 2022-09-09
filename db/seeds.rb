@@ -97,7 +97,7 @@ user_jebg = User.create!(email: "Jean-Eudes.BG@gmail.com",
              description: "Hi Biloute, I'm Jean-Eudes BG, the BG of Paris 17. I'm #{DateTime.now.year - age.year} years old. My typical afternoon is Ricard in front of Sardou. In life I don't like debates: there's no need to wiggle your ass to shit straight.",
              gender: "M",
              address: "31 Rue de Saintonge, 75003 Paris",
-             music_tastes: "Disco, Funk, Soul")
+             music_tastes: "Disco, Funk, Synthwave")
 
 file = URI.open("https://source.unsplash.com/WNoLnJo7tS8")
 user_jebg.photos.attach(io: file, filename: "avatar0.png", content_type: "image/png")
