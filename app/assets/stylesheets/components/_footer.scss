@@ -53,6 +53,11 @@
 
 .song-title-player {
   text-align: center;
+  white-space: nowrap;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 10px;
 }
 
 .menu-deroulant {
