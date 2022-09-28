@@ -9,5 +9,5 @@ Match with people who're listening to the same song at the same time!
 
 Love buzz is connected to your spotify account so you can match while playing your favourites songs
 
-# Demo
+# Deployed website
 https://www.lovebuzz.app/
